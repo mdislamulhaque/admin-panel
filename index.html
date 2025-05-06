@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- remix-icon cdn  -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+</head>
+<body>
+   <div class="min-h-screen flex">
+
+    <div id="aside" class="hidden lg:block w-64">
+        
+        <aside id="sidebar"
+        class=" h-screen bg-white border-r border-gray-200   overflow-y-auto">
+        
+        <div class="p-5">
+          <a href="/index.html">
+            <img src="https://vivacombd.com/vivacom/assets/media/viva_logo.png" width="150" />
+          </a>
+        </div>
+        
+        <nav class="px-5">
+          <h2 class="text-xs uppercase text-gray-400 mb-4">Menu</h2>
+          <ul class="flex flex-col gap-4">
+            <li>
+              <button onclick="toggleSubmenu('dashboard')" class="menu-item-inactive w-full flex items-center justify-between px-3 py-2 rounded">
+                <a href="/index.html">
+                    <span class="flex items-center gap-3">
+                      <i class="ri-dashboard-line"></i>
+                        <span>Dashboard</span>
+                      </span>
+                   </a>
+                <!-- <span><i class="ri-arrow-right-s-line"></i></span> -->
+              </button>
+              <!-- <div id="submenu-dashboard" class="overflow-hidden transition-all duration-300 max-h-0">
+                <ul class="ml-9 mt-2 space-y-1">
+                  <li><a href="/" class="menu-dropdown-item-inactive">Ecommerce</a></li>
+                </ul>
+              </div> -->
+            </li>
+        
+            <li>
+              <a href="/calendar" class="menu-item-inactive flex items-center gap-3 px-3 py-2 rounded"><i class="ri-calendar-line"></i><span>Calendar</span></a>
+            </li>
+        
+            <li>
+              <a href="/profile" class="menu-item-inactive flex items-center gap-3 px-3 py-2 rounded"><i class="ri-user-line"></i><span>User Profile</span></a>
+            </li>
+        
+            <li>
+              <button onclick="toggleSubmenu('forms')" class="menu-item-inactive w-full flex items-center justify-between px-3 py-2 rounded">
+                <span class="flex items-center gap-3">
+                  <i class="ri-file-list-line"></i>
+                  <span>Forms</span>
+                </span>
+                <span><i class="ri-arrow-right-s-line"></i></span>
+              </button>
+              <div id="submenu-forms" class="overflow-hidden transition-all duration-300 max-h-0">
+                <ul class="ml-9 mt-2 space-y-1">
+                  <li><a href="/form.html" class="menu-dropdown-item-inactive">Form Elements</a></li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        
+          <h2 class="text-xs uppercase text-gray-400 mt-6 mb-4">Others</h2>
+          <ul class="flex flex-col gap-4">
+            <li>
+              <button onclick="toggleSubmenu('charts')" class="menu-item-inactive w-full flex items-center justify-between px-3 py-2 rounded">
+                <span class="flex items-center gap-3">
+                  <i class="ri-bar-chart-line"></i>
+                  <span>Charts</span>
+                </span>
+                <span><i class="ri-arrow-right-s-line"></i></span>
+              </button>
+              <div id="submenu-charts" class="overflow-hidden transition-all duration-300 max-h-0">
+                <ul class="ml-9 mt-2 space-y-1">
+                  <li><a href="/line-chart" class="menu-dropdown-item-inactive">Line Chart</a></li>
+                  <li><a href="/bar-chart" class="menu-dropdown-item-inactive">Bar Chart</a></li>
+                </ul>
+              </div>
+            </li>
+        
+            <li>
+              <button onclick="toggleSubmenu('auth')" class="menu-item-inactive w-full flex items-center justify-between px-3 py-2 rounded">
+                <span class="flex items-center gap-3">
+                  <i class="ri-lock-line"></i>
+                  <span>Authentication</span>
+                </span>
+                <span><i class="ri-arrow-right-s-line"></i></span>
+              </button>
+              <div id="submenu-auth" class="overflow-hidden transition-all duration-300 max-h-0">
+                <ul class="ml-9 mt-2 space-y-1">
+                  <li><a href="/signin" class="menu-dropdown-item-inactive">Sign In</a></li>
+                  <li><a href="/signup" class="menu-dropdown-item-inactive">Sign Up</a></li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </nav>
+        </aside>
+        
+        <script>
+        function toggleSubmenu(id) {
+          const submenu = document.getElementById("submenu-" + id);
+          if (!submenu) return;
+          const isOpen = submenu.style.maxHeight && submenu.style.maxHeight !== "0px";
+        
+          if (isOpen) {
+            submenu.style.maxHeight = "0px";
+          } else {
+            submenu.style.maxHeight = submenu.scrollHeight + "px";
+          }
+        }
+        
+        // Optional: highlight active link based on location
+        const currentPath = window.location.pathname;
+        const links = document.querySelectorAll("a[href]");
+        links.forEach(link => {
+          if (link.getAttribute("href") === currentPath) {
+            link.classList.add("menu-dropdown-item-active");
+          }
+        });
+        </script>
+    </div>
+    <div id="main" class="flex-1 flex flex-col">
+        <header class="bg-white shadow p-4 flex justify-between items-center">
+            <div class="flex w-full flex-col lg:flex-row justify-between items-center px-3 lg:px-6 py-3">
+              <!-- Left Section -->
+              <div class="flex items-center w-full justify-between lg:justify-normal gap-2 lg:gap-4">
+                <!-- Sidebar Toggle Button -->
+                <button
+                id="sidebarToggle"
+                class= " size-10 text-xl  border lg:hidden items-center justify-center rounded-lg text-gray-500 border-gray-200"
+                aria-label="Toggle Sidebar"
+              >
+                <span class="flex justify-center items-center" id="sidebarIcon">
+                  <i class="ri-menu-2-line"></i>
+                </span>
+              </button>
+      
+                <!-- Logo -->
+                <a href="/" class="lg:hidden flex items-center gap-2">
+                  <img src="https://vivacombd.com/vivacom/assets/media/viva_logo.png" alt="Logo" />
+                </a>
+      
+                <!-- App Menu Button -->
+                <button
+                  id="appMenuBtn"
+                  class="w-10 h-10 flex items-center justify-center text-gray-700 hover:bg-gray-100 rounded-lg lg:hidden"
+                >
+                  <i class="ri-more-2-line"></i>
+                </button>
+      
+                <!-- Search Input (hidden on mobile) -->
+                <form class="hidden lg:block w-[430px]">
+                  <div class="relative">
+                    <span class="absolute left-4 top-1/2 -translate-y-1/2"><i class="ri-search-line"></i></span>
+                    <input
+                      id="searchInput"
+                      type="text"
+                      placeholder="Search or type command..."
+                      class="w-full h-11 pl-12 pr-14 text-sm bg-transparent rounded-lg border border-gray-200 text-gray-800 placeholder:text-gray-400 focus:outline-none"
+                    />
+                    <button
+                      type="button"
+                      class="absolute right-2.5 top-1/2 -translate-y-1/2 px-2 py-1 text-xs text-gray-500 border border-gray-200 rounded"
+                    >
+                      ⌘ K
+                    </button>
+                  </div>
+                </form>
+              </div>
+      
+              <!-- Right Section -->
+              <div id="appMenu" class="w-full lg:flex items-center justify-end gap-4 mt-4 lg:mt-0 hidden">
+                <div class="flex gap-3 items-center">
+                  <!-- Removed Theme Toggle -->
+      
+                  <!-- Notification -->
+                  <div>
+                    <button class="w-10 h-10 rounded-lg border border-gray-200"><i class="ri-notification-3-line"></i></button>
+                  </div>
+                </div>
+      
+                <!-- User -->
+                <div>
+                  <button class="w-10 h-10 rounded-full border border-gray-200"><i class="ri-user-3-line"></i></button>
+                </div>
+              </div>
+            </div>
+          </header>
+      
+          <script>
+            // Sidebar toggle logic
+            const sidebarToggle = document.getElementById("sidebarToggle");
+            const sidebarIcon = document.getElementById("sidebarIcon");
+      
+            let sidebarOpen = false;
+      
+            sidebarToggle.addEventListener("click", () => {
+              sidebarOpen = !sidebarOpen;
+              sidebarIcon.innerHTML = sidebarOpen
+                ? `<span class="ri-close-line"></span>`
+                : `<span class="ri-menu-2-line"></span>`;
+            });
+      
+            // App menu toggle
+            const appMenuBtn = document.getElementById("appMenuBtn");
+            const appMenu = document.getElementById("appMenu");
+      
+            appMenuBtn.addEventListener("click", () => {
+              appMenu.classList.toggle("hidden");
+              appMenu.classList.toggle("flex");
+            });
+      
+            // Ctrl+K or Cmd+K to focus search
+            const searchInput = document.getElementById("searchInput");
+            document.addEventListener("keydown", (e) => {
+              if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+                e.preventDefault();
+                searchInput?.focus();
+              }
+            });
+          </script>
+
+<div class="flex-1 flex flex-col">
+    <div class="p-6 bg-gray-50 min-h-screen space-y-6">
+        <!-- Stats Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Customers Card -->
+          <div class="bg-white rounded-xl p-6 shadow-sm border">
+            <div class="flex items-center space-x-4">
+              <div class="p-3 bg-gray-100 rounded-full">
+                <!-- User icon -->
+                <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path d="M5.121 17.804A13.937 13.937 0 0112 15c2.21 0 4.292.534 6.121 1.475M15 10a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+              </div>
+              <div>
+                <p class="text-sm text-gray-500">Customers</p>
+                <p class="text-2xl font-semibold text-gray-900">3,782</p>
+              </div>
+            </div>
+            <div class="mt-4">
+              <span class="inline-flex items-center px-2 py-1 text-xs font-medium bg-green-100 text-green-700 rounded-full">
+                <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M5 10l5-5 5 5H5z" clip-rule="evenodd"/>
+                </svg>
+                11.01%
+              </span>
+            </div>
+          </div>
+      
+          <!-- Orders Card -->
+          <div class="bg-white rounded-xl p-6 shadow-sm border">
+            <div class="flex items-center space-x-4">
+              <div class="p-3 bg-gray-100 rounded-full">
+                <!-- Box icon -->
+                <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path d="M3 7l9 5 9-5M4 6h16M4 6v10c0 .69.56 1.25 1.25 1.25h13.5A1.25 1.25 0 0020 16V6" />
+                </svg>
+              </div>
+              <div>
+                <p class="text-sm text-gray-500">Orders</p>
+                <p class="text-2xl font-semibold text-gray-900">5,359</p>
+              </div>
+            </div>
+            <div class="mt-4">
+              <span class="inline-flex items-center px-2 py-1 text-xs font-medium bg-red-100 text-red-700 rounded-full">
+                <svg class="w-3 h-3 mr-1 rotate-180" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M5 10l5-5 5 5H5z" clip-rule="evenodd"/>
+                </svg>
+                9.05%
+              </span>
+            </div>
+          </div>
+        </div>
+      
+        <!-- Monthly Sales -->
+        <div class="bg-white rounded-xl p-6 shadow-sm border">
+          <h2 class="text-lg font-semibold text-gray-800 mb-4">Monthly Sales</h2>
+          <div class="flex items-end space-x-2 h-40">
+            <!-- Fake bar chart using Tailwind width & height -->
+            <div class="flex flex-col items-center text-sm text-gray-500">
+              <div class="w-4 bg-blue-500 rounded-t h-16"></div>
+              <span>Jan</span>
+            </div>
+            <div class="flex flex-col items-center text-sm text-gray-500">
+              <div class="w-4 bg-blue-500 rounded-t h-32"></div>
+              <span>Feb</span>
+            </div>
+            <div class="flex flex-col items-center text-sm text-gray-500">
+              <div class="w-4 bg-blue-500 rounded-t h-20"></div>
+              <span>Mar</span>
+            </div>
+            <div class="flex flex-col items-center text-sm text-gray-500">
+              <div class="w-4 bg-blue-500 rounded-t h-28"></div>
+              <span>Apr</span>
+            </div>
+            <div class="flex flex-col items-center text-sm text-gray-500">
+              <div class="w-4 bg-blue-500 rounded-t h-16"></div>
+              <span>May</span>
+            </div>
+            <div class="flex flex-col items-center text-sm text-gray-500">
+              <div class="w-4 bg-blue-500 rounded-t h-16"></div>
+              <span>Jun</span>
+            </div>
+            <div class="flex flex-col items-center text-sm text-gray-500">
+              <div class="w-4 bg-blue-500 rounded-t h-28"></div>
+              <span>Jul</span>
+            </div>
+            <div class="flex flex-col items-center text-sm text-gray-500">
+              <div class="w-4 bg-blue-500 rounded-t h-10"></div>
+              <span>Aug</span>
+            </div>
+            <div class="flex flex-col items-center text-sm text-gray-500">
+              <div class="w-4 bg-blue-500 rounded-t h-20"></div>
+              <span>Sep</span>
+            </div>
+            <div class="flex flex-col items-center text-sm text-gray-500">
+              <div class="w-4 bg-blue-500 rounded-t h-36"></div>
+              <span>Oct</span>
+            </div>
+            <div class="flex flex-col items-center text-sm text-gray-500">
+              <div class="w-4 bg-blue-500 rounded-t h-28"></div>
+              <span>Nov</span>
+            </div>
+            <div class="flex flex-col items-center text-sm text-gray-500">
+              <div class="w-4 bg-blue-500 rounded-t h-12"></div>
+              <span>Dec</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+</div>
+    </div>
+    
+   </div>
+   <script>
+    const aside = document.getElementById('aside');
+    const main = document.getElementById('main');
+    const toggleButton = document.getElementById('sidebarToggle');
+    toggleButton.addEventListener('click', () => {
+      aside.classList.toggle('hidden');
+    });
+   </script>
+</body>
+</html>
