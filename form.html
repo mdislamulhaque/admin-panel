@@ -1,240 +1,315 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Form Elements</title>
     <script src="https://cdn.tailwindcss.com"></script>
-     <!-- remix-icon cdn  -->
-     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <!-- remix-icon cdn  -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
     <style>
-        /* Custom switch styling */
-        .switch input {
-          display: none;
-        }
-        .slider {
-          transition: all 0.3s ease;
-        }
-        .switch input:checked + .slider {
-          background-color: #3b82f6; /* blue-500 */
-        }
-        .switch input:checked + .slider::before {
-          transform: translateX(100%);
-        }
-      </style>
-</head>
-<body>
-   <div class="min-h-screen flex">
+      /* Custom switch styling */
+      .switch input {
+        display: none;
+      }
+      .slider {
+        transition: all 0.3s ease;
+      }
+      .switch input:checked + .slider {
+        background-color: #3b82f6; /* blue-500 */
+      }
+      .switch input:checked + .slider::before {
+        transform: translateX(100%);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="min-h-screen flex">
+      <div id="aside" class="hidden lg:block w-64">
+        <aside
+          id="sidebar"
+          class="h-screen bg-white border-r border-gray-200 overflow-y-auto"
+        >
+          <div class="p-5">
+            <a href="/Dashboard.html">
+              <img
+                src="https://vivacombd.com/vivacom/assets/media/viva_logo.png"
+                width="150"
+              />
+            </a>
+          </div>
 
-    <div id="aside" class="hidden lg:block w-64">
-        
-      <aside id="sidebar"
-      class=" h-screen bg-white border-r border-gray-200   overflow-y-auto">
-      
-      <div class="p-5">
-        <a href="/Dashboard.html">
-          <img src="https://vivacombd.com/vivacom/assets/media/viva_logo.png" width="150" />
-        </a>
-      </div>
-      
-      <nav class="px-5">
-        <h2 class="text-xs uppercase text-gray-400 mb-4">Menu</h2>
-        <ul class="flex flex-col gap-4">
-          <li>
-            <button onclick="toggleSubmenu('dashboard')" class="menu-item-inactive w-full flex items-center justify-between px-3 py-2 rounded">
-              <a href="/Dashboard.html">
-                  <span class="flex items-center gap-3">
-                    <i class="ri-dashboard-line"></i>
+          <nav class="px-5">
+            <h2 class="text-xs uppercase text-gray-400 mb-4">Menu</h2>
+            <ul class="flex flex-col gap-4">
+              <li>
+                <button
+                  onclick="toggleSubmenu('dashboard')"
+                  class="menu-item-inactive w-full flex items-center justify-between px-3 py-2 rounded"
+                >
+                  <a href="/Dashboard.html">
+                    <span class="flex items-center gap-3">
+                      <i class="ri-dashboard-line"></i>
                       <span>Dashboard</span>
                     </span>
-                 </a>
-              <!-- <span><i class="ri-arrow-right-s-line"></i></span> -->
-            </button>
-            <!-- <div id="submenu-dashboard" class="overflow-hidden transition-all duration-300 max-h-0">
+                  </a>
+                  <!-- <span><i class="ri-arrow-right-s-line"></i></span> -->
+                </button>
+                <!-- <div id="submenu-dashboard" class="overflow-hidden transition-all duration-300 max-h-0">
               <ul class="ml-9 mt-2 space-y-1">
                 <li><a href="/" class="menu-dropdown-item-inactive">Ecommerce</a></li>
               </ul>
             </div> -->
-          </li>
-      
-          <li>
-            <a href="/calendar" class="menu-item-inactive flex items-center gap-3 px-3 py-2 rounded"><i class="ri-calendar-line"></i><span>Calendar</span></a>
-          </li>
-      
-          <li>
-            <a href="/profile" class="menu-item-inactive flex items-center gap-3 px-3 py-2 rounded"><i class="ri-user-line"></i><span>User Profile</span></a>
-          </li>
-      
-          <li>
-            <button onclick="toggleSubmenu('forms')" class="menu-item-inactive w-full flex items-center justify-between px-3 py-2 rounded">
-              <span class="flex items-center gap-3">
-                <i class="ri-file-list-line"></i>
-                <span>Forms</span>
-              </span>
-              <span><i class="ri-arrow-right-s-line"></i></span>
-            </button>
-            <div id="submenu-forms" class="overflow-hidden transition-all duration-300 max-h-0">
-              <ul class="ml-9 mt-2 space-y-1">
-                <li><a href="/form.html" class="menu-dropdown-item-inactive">Form Elements</a></li>
-              </ul>
-            </div>
-          </li>
-        </ul>
-      
-        <h2 class="text-xs uppercase text-gray-400 mt-6 mb-4">Others</h2>
-        <ul class="flex flex-col gap-4">
-          <li>
-            <button onclick="toggleSubmenu('charts')" class="menu-item-inactive w-full flex items-center justify-between px-3 py-2 rounded">
-              <span class="flex items-center gap-3">
-                <i class="ri-bar-chart-line"></i>
-                <span>Charts</span>
-              </span>
-              <span><i class="ri-arrow-right-s-line"></i></span>
-            </button>
-            <div id="submenu-charts" class="overflow-hidden transition-all duration-300 max-h-0">
-              <ul class="ml-9 mt-2 space-y-1">
-                <li><a href="/line-chart" class="menu-dropdown-item-inactive">Line Chart</a></li>
-                <li><a href="/bar-chart" class="menu-dropdown-item-inactive">Bar Chart</a></li>
-              </ul>
-            </div>
-          </li>
-      
-          <li>
-            <button onclick="toggleSubmenu('auth')" class="menu-item-inactive w-full flex items-center justify-between px-3 py-2 rounded">
-              <span class="flex items-center gap-3">
-                <i class="ri-lock-line"></i>
-                <span>Authentication</span>
-              </span>
-              <span><i class="ri-arrow-right-s-line"></i></span>
-            </button>
-            <div id="submenu-auth" class="overflow-hidden transition-all duration-300 max-h-0">
-              <ul class="ml-9 mt-2 space-y-1">
-                <li><a href="/index.html" class="menu-dropdown-item-inactive">Sign In</a></li>
-                <li><a href="/signup" class="menu-dropdown-item-inactive">Sign Up</a></li>
-              </ul>
-            </div>
-          </li>
-        </ul>
-      </nav>
-      </aside>
-      
-      <script>
-      function toggleSubmenu(id) {
-        const submenu = document.getElementById("submenu-" + id);
-        if (!submenu) return;
-        const isOpen = submenu.style.maxHeight && submenu.style.maxHeight !== "0px";
-      
-        if (isOpen) {
-          submenu.style.maxHeight = "0px";
-        } else {
-          submenu.style.maxHeight = submenu.scrollHeight + "px";
-        }
-      }
-      
-      // Optional: highlight active link based on location
-      const currentPath = window.location.pathname;
-      const links = document.querySelectorAll("a[href]");
-      links.forEach(link => {
-        if (link.getAttribute("href") === currentPath) {
-          link.classList.add("menu-dropdown-item-active");
-        }
-      });
-      </script>
-  </div>
+              </li>
 
-    <div id="main" class="flex-1 flex flex-col overflow-x-hidden ">
+              <li>
+                <a
+                  href="#"
+                  class="menu-item-inactive flex items-center gap-3 px-3 py-2 rounded"
+                  ><i class="ri-calendar-line"></i><span>Calendar</span></a
+                >
+              </li>
 
-       <div>
-        <header class="bg-white shadow p-4 flex justify-between items-center">
-          <div class="flex w-full flex-col lg:flex-row justify-between items-center px-3 lg:px-6 py-3">
-            <!-- Left Section -->
-            <div class="flex items-center w-full justify-between lg:justify-normal gap-2 lg:gap-4">
-              <!-- Sidebar Toggle Button -->
-              <button
-                id="sidebarToggle"
-                class= " size-10 text-xl  border lg:hidden items-center justify-center rounded-lg text-gray-500 border-gray-200"
-                aria-label="Toggle Sidebar"
+              <li>
+                <a
+                  href="/UserProfile.html"
+                  class="menu-item-inactive flex items-center gap-3 px-3 py-2 rounded"
+                  ><i class="ri-user-line"></i><span>User Profile</span></a
+                >
+              </li>
+
+              <li>
+                <button
+                  onclick="toggleSubmenu('forms')"
+                  class="menu-item-inactive w-full flex items-center justify-between px-3 py-2 rounded"
+                >
+                  <span class="flex items-center gap-3">
+                    <i class="ri-file-list-line"></i>
+                    <span>Forms</span>
+                  </span>
+                  <span><i class="ri-arrow-right-s-line"></i></span>
+                </button>
+                <div
+                  id="submenu-forms"
+                  class="overflow-hidden transition-all duration-300 max-h-0"
+                >
+                  <ul class="ml-9 mt-2 space-y-1">
+                    <li>
+                      <a href="/form.html" class="menu-dropdown-item-inactive"
+                        >Form Elements</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+
+            <h2 class="text-xs uppercase text-gray-400 mt-6 mb-4">Others</h2>
+            <ul class="flex flex-col gap-4">
+              <li>
+                <button
+                  onclick="toggleSubmenu('charts')"
+                  class="menu-item-inactive w-full flex items-center justify-between px-3 py-2 rounded"
+                >
+                  <span class="flex items-center gap-3">
+                    <i class="ri-bar-chart-line"></i>
+                    <span>Charts</span>
+                  </span>
+                  <span><i class="ri-arrow-right-s-line"></i></span>
+                </button>
+                <div
+                  id="submenu-charts"
+                  class="overflow-hidden transition-all duration-300 max-h-0"
+                >
+                  <ul class="ml-9 mt-2 space-y-1">
+                    <li>
+                      <a href="#" class="menu-dropdown-item-inactive"
+                        >Line Chart</a
+                      >
+                    </li>
+                    <li>
+                      <a href="#" class="menu-dropdown-item-inactive"
+                        >Bar Chart</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </li>
+
+              <li>
+                <button
+                  onclick="toggleSubmenu('auth')"
+                  class="menu-item-inactive w-full flex items-center justify-between px-3 py-2 rounded"
+                >
+                  <span class="flex items-center gap-3">
+                    <i class="ri-lock-line"></i>
+                    <span>Authentication</span>
+                  </span>
+                  <span><i class="ri-arrow-right-s-line"></i></span>
+                </button>
+                <div
+                  id="submenu-auth"
+                  class="overflow-hidden transition-all duration-300 max-h-0"
+                >
+                  <ul class="ml-9 mt-2 space-y-1">
+                    <li>
+                      <a href="/index.html" class="menu-dropdown-item-inactive"
+                        >Sign In</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="/SignUpLight.html"
+                        class="menu-dropdown-item-inactive"
+                        >Sign Up</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </nav>
+        </aside>
+
+        <script>
+          function toggleSubmenu(id) {
+            const submenu = document.getElementById("submenu-" + id);
+            if (!submenu) return;
+            const isOpen =
+              submenu.style.maxHeight && submenu.style.maxHeight !== "0px";
+
+            if (isOpen) {
+              submenu.style.maxHeight = "0px";
+            } else {
+              submenu.style.maxHeight = submenu.scrollHeight + "px";
+            }
+          }
+
+          // Optional: highlight active link based on location
+          const currentPath = window.location.pathname;
+          const links = document.querySelectorAll("a[href]");
+          links.forEach((link) => {
+            if (link.getAttribute("href") === currentPath) {
+              link.classList.add("menu-dropdown-item-active");
+            }
+          });
+        </script>
+      </div>
+
+      <div id="main" class="flex-1 flex flex-col overflow-x-hidden">
+        <div>
+          <header class="bg-white shadow p-4 flex justify-between items-center">
+            <div
+              class="flex w-full flex-col lg:flex-row justify-between items-center px-3 lg:px-6 py-3"
+            >
+              <!-- Left Section -->
+              <div
+                class="flex items-center w-full justify-between lg:justify-normal gap-2 lg:gap-4"
               >
-                <span class="flex justify-center items-center" id="sidebarIcon">
-                  <i class="ri-menu-2-line"></i>
-                </span>
-              </button>
-    
-              <!-- Logo -->
-              <a href="/" class="lg:hidden flex items-center gap-2">
-                <img src="https://vivacombd.com/vivacom/assets/media/viva_logo.png" alt="Logo" />
-              </a>
-    
-              <!-- App Menu Button -->
-              <button
-                id="appMenuBtn"
-                class="w-10 h-10 flex items-center justify-center text-gray-700 hover:bg-gray-100 rounded-lg lg:hidden"
-              >
-                <i class="ri-more-2-line"></i>
-              </button>
-    
-              <!-- Search Input (hidden on mobile) -->
-              <form class="hidden lg:block w-[430px]">
-                <div class="relative">
-                  <span class="absolute left-4 top-1/2 -translate-y-1/2"><i class="ri-search-line"></i></span>
-                  <input
-                    id="searchInput"
-                    type="text"
-                    placeholder="Search or type command..."
-                    class="w-full h-11 pl-12 pr-14 text-sm bg-transparent rounded-lg border border-gray-200 text-gray-800 placeholder:text-gray-400 focus:outline-none"
-                  />
-                  <button
-                    type="button"
-                    class="absolute right-2.5 top-1/2 -translate-y-1/2 px-2 py-1 text-xs text-gray-500 border border-gray-200 rounded"
+                <!-- Sidebar Toggle Button -->
+                <button
+                  id="sidebarToggle"
+                  class="size-10 text-xl border lg:hidden items-center justify-center rounded-lg text-gray-500 border-gray-200"
+                  aria-label="Toggle Sidebar"
+                >
+                  <span
+                    class="flex justify-center items-center"
+                    id="sidebarIcon"
                   >
-                    ⌘ K
+                    <i class="ri-menu-2-line"></i>
+                  </span>
+                </button>
+
+                <!-- Logo -->
+                <a href="/" class="lg:hidden flex items-center gap-2">
+                  <img
+                    src="https://vivacombd.com/vivacom/assets/media/viva_logo.png"
+                    alt="Logo"
+                  />
+                </a>
+
+                <!-- App Menu Button -->
+                <button
+                  id="appMenuBtn"
+                  class="w-10 h-10 flex items-center justify-center text-gray-700 hover:bg-gray-100 rounded-lg lg:hidden"
+                >
+                  <i class="ri-more-2-line"></i>
+                </button>
+
+                <!-- Search Input (hidden on mobile) -->
+                <form class="hidden lg:block w-[430px]">
+                  <div class="relative">
+                    <span class="absolute left-4 top-1/2 -translate-y-1/2"
+                      ><i class="ri-search-line"></i
+                    ></span>
+                    <input
+                      id="searchInput"
+                      type="text"
+                      placeholder="Search or type command..."
+                      class="w-full h-11 pl-12 pr-14 text-sm bg-transparent rounded-lg border border-gray-200 text-gray-800 placeholder:text-gray-400 focus:outline-none"
+                    />
+                    <button
+                      type="button"
+                      class="absolute right-2.5 top-1/2 -translate-y-1/2 px-2 py-1 text-xs text-gray-500 border border-gray-200 rounded"
+                    >
+                      ⌘ K
+                    </button>
+                  </div>
+                </form>
+              </div>
+
+              <!-- Right Section -->
+              <div
+                id="appMenu"
+                class="w-full lg:flex items-center justify-end gap-4 mt-4 lg:mt-0 hidden"
+              >
+                <div class="flex gap-3 items-center">
+                  <!-- Removed Theme Toggle -->
+
+                  <!-- Notification -->
+                  <div>
+                    <button class="w-10 h-10 rounded-lg border border-gray-200">
+                      <i class="ri-notification-3-line"></i>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- User -->
+                <div>
+                  <button class="w-10 h-10 rounded-full border border-gray-200">
+                    <i class="ri-user-3-line"></i>
                   </button>
                 </div>
-              </form>
-            </div>
-    
-            <!-- Right Section -->
-            <div id="appMenu" class="w-full lg:flex items-center justify-end gap-4 mt-4 lg:mt-0 hidden">
-              <div class="flex gap-3 items-center">
-                <!-- Removed Theme Toggle -->
-    
-                <!-- Notification -->
-                <div>
-                  <button class="w-10 h-10 rounded-lg border border-gray-200"><i class="ri-notification-3-line"></i></button>
-                </div>
-              </div>
-    
-              <!-- User -->
-              <div>
-                <button class="w-10 h-10 rounded-full border border-gray-200"><i class="ri-user-3-line"></i></button>
               </div>
             </div>
-          </div>
-        </header>
-      
-        <script>
+          </header>
+
+          <script>
             // Sidebar toggle logic
             const sidebarToggle = document.getElementById("sidebarToggle");
             const sidebarIcon = document.getElementById("sidebarIcon");
-      
+
             let sidebarOpen = false;
-      
+
             sidebarToggle.addEventListener("click", () => {
               sidebarOpen = !sidebarOpen;
               sidebarIcon.innerHTML = sidebarOpen
                 ? `<svg width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M6.22 6.22a1 1 0 011.42 0L12 10.59l4.36-4.37a1 1 0 111.42 1.42L13.41 12l4.37 4.36a1 1 0 01-1.42 1.42L12 13.41l-4.36 4.37a1 1 0 01-1.42-1.42L10.59 12 6.22 7.64a1 1 0 010-1.42z"/></svg>`
                 : `<svg width="16" height="12" viewBox="0 0 16 12"><path fill="currentColor" d="M0.583 1A.75.75 0 011.333.25h13.333a.75.75 0 010 1.5H1.333A.75.75 0 010.583 1zm0 10a.75.75 0 01.75-.75h13.333a.75.75 0 010 1.5H1.333a.75.75 0 01-.75-.75zM1.333 5.25a.75.75 0 000 1.5h6.667a.75.75 0 000-1.5H1.333z"/></svg>`;
             });
-      
+
             // App menu toggle
             const appMenuBtn = document.getElementById("appMenuBtn");
             const appMenu = document.getElementById("appMenu");
-      
+
             appMenuBtn.addEventListener("click", () => {
               appMenu.classList.toggle("hidden");
               appMenu.classList.toggle("flex");
             });
-      
+
             // Ctrl+K or Cmd+K to focus search
             const searchInput = document.getElementById("searchInput");
             document.addEventListener("keydown", (e) => {
@@ -243,746 +318,997 @@
                 searchInput?.focus();
               }
             });
-        </script>
-       </div>
+          </script>
+        </div>
 
-       <div>
-        <div class="grid grid-cols-1 md:grid-cols-2">
+        <div>
+          <div class="grid grid-cols-1 md:grid-cols-2">
             <!-- left -->
-          <div class="w-full flex flex-col gap-4 sm:px-6 py-4">
+            <div class="w-full flex flex-col gap-4 sm:px-6 py-4">
               <!-- default input  -->
               <div>
                 <div class="p-6 border rounded-lg bg-white shadow">
-                    <h2 class="text-lg font-semibold mb-6">Default Inputs</h2>
-                    <div class="space-y-6">
-                      <div>
-                        <label for="input" class="block mb-2 text-sm font-medium text-gray-700">Input</label>
-                        <input type="text" id="input" class="block w-full rounded-md border border-gray-300 px-4 py-2 text-sm  focus:ring focus:ring-blue-200 focus:outline-none" />
-                      </div>
-                
-                      <div>
-                        <label for="inputTwo" class="block mb-2 text-sm font-medium text-gray-700">Input with Placeholder</label>
-                        <input type="text" id="inputTwo" placeholder="info@gmail.com" class="block w-full rounded-md border border-gray-300 px-4 py-2 text-sm focus:ring focus:ring-blue-200 focus:outline-none" />
-                      </div>
-                
-                      <div>
-                        <label for="selectInput" class="block mb-2 text-sm font-medium text-gray-700">Select Input</label>
-                        <select id="selectInput" class="block w-full rounded-md border border-gray-300 px-4 py-2 text-sm focus:ring focus:ring-blue-200 focus:outline-none">
-                          <option value="">Select an option</option>
-                          <option value="marketing">Marketing</option>
-                          <option value="template">Template</option>
-                          <option value="development">Development</option>
-                        </select>
-                      </div>
-                
-                      <div>
-                        <label for="password" class="block mb-2 text-sm font-medium text-gray-700">Password Input</label>
-                        <div class="relative">
-                          <input type="password" id="password" placeholder="Enter your password" class="block w-full rounded-md border border-gray-300 px-4 py-2 text-sm pr-10 focus:ring focus:ring-blue-200 focus:outline-none" />
-                          <button id="togglePassword" type="button" class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 text-xl"><i class="ri-eye-line"></i></button>
-                        </div>
-                      </div>
-                
-                      <div>
-                        <label for="datePicker" class="block mb-2 text-sm font-medium text-gray-700">Date Picker Input</label>
-                        <input type="date" id="datePicker" class="block w-full rounded-md border border-gray-300 px-4 py-2 text-sm focus:ring focus:ring-blue-200 focus:outline-none" onchange="console.log('Date:', this.value)" />
-                      </div>
-                
-                      <div>
-                        <label for="tm" class="block mb-2 text-sm font-medium text-gray-700">Time Picker Input</label>
-                        <div class="relative">
-                          <input type="time" id="tm" class="block w-full rounded-md border border-gray-300 ps-4 py-2 text-sm pr-4 focus:ring focus:ring-blue-200 focus:outline-none" onchange="console.log('Time:', this.value)" />
-                          <!-- <span class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500"><i class="ri-time-line"></i></span> -->
-                        </div>
-                      </div>
-                
-                      <div>
-                        <label for="card" class="block mb-2 text-sm font-medium text-gray-700">Input with Payment</label>
-                        <div class="relative">
-                          <input type="text" id="card" placeholder="Card number" class="block w-full rounded-md border border-gray-300 pl-16 py-2 text-sm focus:ring focus:ring-blue-200 focus:outline-none" />
-                          <span class="absolute left-0 top-1/2 flex h-11 w-[46px] -translate-y-1/2 items-center justify-center border-r border-gray-200">
-                            <i class="ri-mastercard-fill"></i>
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                
-                  <script>
-                    // Toggle password visibility
-                    const passwordInput = document.getElementById("password");
-                    const togglePasswordBtn = document.getElementById("togglePassword");
-                
-                    togglePasswordBtn.addEventListener("click", () => {
-                      const isPassword = passwordInput.type === "password";
-                      passwordInput.type = isPassword ? "text" : "password";
-                      togglePasswordBtn.innerHTML = isPassword ? `<i class="ri-eye-off-line"></i>` : `<i class="ri-eye-line"></i>`;
-                    });
-                
-                    // Handle select change
-                    document.getElementById("selectInput").addEventListener("change", function () {
-                      console.log("Selected value:", this.value);
-                    });
-                  </script>
-            </div>
-            <!-- select input  -->
-            <div>
-                <div class="max-w-xl mx-auto bg-white p-6 rounded-lg shadow space-y-4">
+                  <h2 class="text-lg font-semibold mb-6">Default Inputs</h2>
+                  <div class="space-y-6">
                     <div>
-                        <label class="block mb-2 text-sm font-medium text-gray-700">Select Input</label>
-                        <select id="single-select" class="w-full border border-gray-300 rounded-md p-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
-                          <option value="">Select Option</option>
-                          <option value="marketing">Marketing</option>
-                          <option value="template">Template</option>
-                          <option value="development">Development</option>
-                        </select>
-                      </div>
-                    <label class="block mb-1 text-sm font-medium text-gray-700">Multiple Select Options</label>
-                
-                    <div class="relative">
-                      <!-- Tag display box -->
-                      <div id="selected-tags"
-                           class="flex flex-wrap items-center gap-2 p-2 border border-gray-300 rounded-md min-h-[42px] cursor-pointer"
-                           onclick="toggleDropdown()">
-                        <span id="placeholder" class="text-gray-400">Select options</span>
-                        <!-- Tags inserted dynamically here -->
-                        <svg id="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" class="ml-auto w-5 h-5 text-gray-500 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                        </svg>
-                      </div>
-                
-                      <!-- Dropdown list -->
-                      <div id="dropdown-options" class="absolute z-10 hidden mt-1 w-full bg-white border border-gray-300 rounded-md shadow-md">
-                        <div class="max-h-48 overflow-y-auto">
-                          <!-- Options generated dynamically -->
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                
-                  <script>
-                    const options = [
-                      { value: "1", label: "Option 1" },
-                      { value: "2", label: "Option 2" },
-                      { value: "3", label: "Option 3" },
-                      { value: "4", label: "Option 4" },
-                      { value: "5", label: "Option 5" }
-                    ];
-                
-                    const selectedValues = new Set(["2", "3", "4", "5"]); // default selected
-                    const dropdown = document.getElementById("dropdown-options");
-                    const tagContainer = document.getElementById("selected-tags");
-                    const placeholder = document.getElementById("placeholder");
-                    const arrow = document.getElementById("dropdown-arrow");
-                
-                    function toggleDropdown() {
-                      dropdown.classList.toggle("hidden");
-                      arrow.classList.toggle("rotate-180");
-                    }
-                
-                    function renderOptions() {
-                      const container = dropdown.querySelector("div");
-                      container.innerHTML = "";
-                      options.forEach(opt => {
-                        const div = document.createElement("div");
-                        div.className = "px-4 py-2 hover:bg-gray-100 cursor-pointer text-sm";
-                        div.textContent = opt.label;
-                        div.onclick = () => toggleSelect(opt.value);
-                        container.appendChild(div);
-                      });
-                    }
-                
-                    function toggleSelect(value) {
-                      if (selectedValues.has(value)) {
-                        selectedValues.delete(value);
-                      } else {
-                        selectedValues.add(value);
-                      }
-                      renderTags();
-                    }
-                
-                    function removeTag(value) {
-                      selectedValues.delete(value);
-                      renderTags();
-                    }
-                
-                    function renderTags() {
-                      // Remove all tags except the dropdown arrow
-                      const children = Array.from(tagContainer.children).filter(child => !child.id && !child.tagName.includes("svg"));
-                      children.forEach(child => child.remove());
-                
-                      if (selectedValues.size === 0) {
-                        placeholder.classList.remove("hidden");
-                      } else {
-                        placeholder.classList.add("hidden");
-                      }
-                
-                      selectedValues.forEach(val => {
-                        const opt = options.find(o => o.value === val);
-                        if (!opt) return;
-                
-                        const tag = document.createElement("span");
-                        tag.className = "bg-gray-200 text-gray-800 text-xs px-2 py-1 rounded-full flex items-center gap-1";
-                
-                        const text = document.createElement("span");
-                        text.textContent = opt.label;
-                
-                        const closeBtn = document.createElement("button");
-                        closeBtn.innerHTML = "&times;";
-                        closeBtn.className = "text-gray-500 hover:text-gray-700";
-                        closeBtn.onclick = (e) => {
-                          e.stopPropagation();
-                          removeTag(val);
-                        };
-                
-                        tag.appendChild(text);
-                        tag.appendChild(closeBtn);
-                        tagContainer.insertBefore(tag, arrow);
-                      });
-                    }
-                
-                    renderOptions();
-                    renderTags();
-                
-                    // Close dropdown on outside click
-                    document.addEventListener("click", (e) => {
-                      if (!tagContainer.contains(e.target)) {
-                        dropdown.classList.add("hidden");
-                        arrow.classList.remove("rotate-180");
-                      }
-                    });
-                  </script>
-            </div>
-            <!-- textarea input -->
-             <div>
-                <div class="max-w-xl mx-auto bg-white p-6 rounded-md shadow space-y-6">
-                    <h2 class="text-lg font-semibold">Textarea input field</h2>
-                
-                    <!-- Default TextArea -->
-                    <div>
-                      <label class="block text-sm font-medium text-gray-700 mb-1">Description</label>
-                      <textarea
-                        id="textarea1"
-                        rows="6"
-                        class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        placeholder="Write something..."
-                      ></textarea>
-                    </div>
-                
-                    <!-- Disabled TextArea -->
-                    <div>
-                      <label class="block text-sm font-medium text-gray-700 mb-1">Description</label>
-                      <textarea
-                        rows="6"
-                        class="w-full px-4 py-2 border border-gray-300 rounded-md bg-gray-100 text-gray-500"
-                        placeholder="Disabled"
-                        disabled
-                      ></textarea>
-                    </div>
-                
-                    <!-- Error TextArea -->
-                    <div>
-                      <label class="block text-sm font-medium text-gray-700 mb-1">Description</label>
-                      <textarea
-                        id="textarea2"
-                        rows="6"
-                        class="w-full px-4 py-2 border border-red-500 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
-                        placeholder="Write something..."
-                      ></textarea>
-                      <p id="errorMsg" class="text-red-500 text-sm mt-1 hidden">Please enter a valid message.</p>
-                    </div>
-                  </div>
-                
-                  <script>
-                    const textarea1 = document.getElementById('textarea1');
-                    const textarea2 = document.getElementById('textarea2');
-                    const errorMsg = document.getElementById('errorMsg');
-                
-                    textarea1.addEventListener('input', (e) => {
-                      // Message 1 captured, do what you want
-                      console.log('TextArea 1:', e.target.value);
-                    });
-                
-                    textarea2.addEventListener('input', (e) => {
-                      const value = e.target.value;
-                      if (value.trim().length < 3) {
-                        errorMsg.classList.remove('hidden');
-                        textarea2.classList.add('border-red-500');
-                      } else {
-                        errorMsg.classList.add('hidden');
-                        textarea2.classList.remove('border-red-500');
-                      }
-                    });
-                  </script>
-             </div>
-             <!-- state input  -->
-             <div>
-                <div class="max-w-xl mx-auto bg-white p-6 rounded-md shadow space-y-6">
-                    <h2 class="text-lg font-semibold">Input States</h2>
-                    <p class="text-sm text-gray-600 mb-4">
-                      Validation styles for error, success and disabled states on form controls.
-                    </p>
-                
-                    <!-- Error Input -->
-                    <div>
-                      <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                      <input
-                        id="errorInput"
-                        type="email"
-                        placeholder="Enter your email"
-                        class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2"
-                      />
-                      <p id="errorHint" class="text-sm text-red-500 mt-1 hidden">
-                        This is an invalid email address.
-                      </p>
-                    </div>
-                
-                    <!-- Success Input -->
-                    <div>
-                      <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                      <input
-                        id="successInput"
-                        type="email"
-                        placeholder="Enter your email"
-                        class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2"
-                      />
-                      <p id="successHint" class="text-sm text-green-600 mt-1 hidden">
-                        This is a success message.
-                      </p>
-                    </div>
-                
-                    <!-- Disabled Input -->
-                    <div>
-                      <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                      <label
+                        for="input"
+                        class="block mb-2 text-sm font-medium text-gray-700"
+                        >Input</label
+                      >
                       <input
                         type="text"
-                        value="disabled@example.com"
-                        placeholder="Disabled email"
-                        disabled
-                        class="w-full px-4 py-2 border border-gray-300 bg-gray-100 text-gray-500 rounded-md"
+                        id="input"
+                        class="block w-full rounded-md border border-gray-300 px-4 py-2 text-sm focus:ring focus:ring-blue-200 focus:outline-none"
                       />
                     </div>
-                  </div>
-                
-                  <script>
-                    const errorInput = document.getElementById("errorInput");
-                    const successInput = document.getElementById("successInput");
-                    const errorHint = document.getElementById("errorHint");
-                    const successHint = document.getElementById("successHint");
-                
-                    const validateEmail = (email) => {
-                      const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-                      return regex.test(email);
-                    };
-                
-                    errorInput.addEventListener("input", (e) => {
-                      const value = e.target.value;
-                      const isValid = validateEmail(value);
-                
-                      if (!isValid) {
-                        errorInput.classList.add("border-red-500", "ring-red-500");
-                        errorInput.classList.remove("border-green-500", "ring-green-500");
-                        errorHint.classList.remove("hidden");
-                      } else {
-                        errorInput.classList.remove("border-red-500", "ring-red-500");
-                        errorHint.classList.add("hidden");
-                      }
-                    });
-                
-                    successInput.addEventListener("input", (e) => {
-                      const value = e.target.value;
-                      const isValid = validateEmail(value);
-                
-                      if (isValid) {
-                        successInput.classList.add("border-green-500", "ring-green-500");
-                        successHint.classList.remove("hidden");
-                      } else {
-                        successInput.classList.remove("border-green-500", "ring-green-500");
-                        successHint.classList.add("hidden");
-                      }
-                    });
-                  </script>
-             </div>
-          </div>
-          <!-- right  -->
-          <div class="w-full flex flex-col gap-4 px-6 py-4">
-            <!-- input group  -->
-            <div>
-                <div class="max-w-xl mx-auto bg-white p-6 rounded-md shadow space-y-6">
-                    <h2 class="text-lg font-semibold">Input Group</h2>
-                
-                    <!-- Email with icon -->
+
                     <div>
-                      <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                      <label
+                        for="inputTwo"
+                        class="block mb-2 text-sm font-medium text-gray-700"
+                        >Input with Placeholder</label
+                      >
+                      <input
+                        type="text"
+                        id="inputTwo"
+                        placeholder="info@gmail.com"
+                        class="block w-full rounded-md border border-gray-300 px-4 py-2 text-sm focus:ring focus:ring-blue-200 focus:outline-none"
+                      />
+                    </div>
+
+                    <div>
+                      <label
+                        for="selectInput"
+                        class="block mb-2 text-sm font-medium text-gray-700"
+                        >Select Input</label
+                      >
+                      <select
+                        id="selectInput"
+                        class="block w-full rounded-md border border-gray-300 px-4 py-2 text-sm focus:ring focus:ring-blue-200 focus:outline-none"
+                      >
+                        <option value="">Select an option</option>
+                        <option value="marketing">Marketing</option>
+                        <option value="template">Template</option>
+                        <option value="development">Development</option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <label
+                        for="password"
+                        class="block mb-2 text-sm font-medium text-gray-700"
+                        >Password Input</label
+                      >
+                      <div class="relative">
+                        <input
+                          type="password"
+                          id="password"
+                          placeholder="Enter your password"
+                          class="block w-full rounded-md border border-gray-300 px-4 py-2 text-sm pr-10 focus:ring focus:ring-blue-200 focus:outline-none"
+                        />
+                        <button
+                          id="togglePassword"
+                          type="button"
+                          class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 text-xl"
+                        >
+                          <i class="ri-eye-line"></i>
+                        </button>
+                      </div>
+                    </div>
+
+                    <div>
+                      <label
+                        for="datePicker"
+                        class="block mb-2 text-sm font-medium text-gray-700"
+                        >Date Picker Input</label
+                      >
+                      <input
+                        type="date"
+                        id="datePicker"
+                        class="block w-full rounded-md border border-gray-300 px-4 py-2 text-sm focus:ring focus:ring-blue-200 focus:outline-none"
+                        onchange="console.log('Date:', this.value)"
+                      />
+                    </div>
+
+                    <div>
+                      <label
+                        for="tm"
+                        class="block mb-2 text-sm font-medium text-gray-700"
+                        >Time Picker Input</label
+                      >
+                      <div class="relative">
+                        <input
+                          type="time"
+                          id="tm"
+                          class="block w-full rounded-md border border-gray-300 ps-4 py-2 text-sm pr-4 focus:ring focus:ring-blue-200 focus:outline-none"
+                          onchange="console.log('Time:', this.value)"
+                        />
+                        <!-- <span class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500"><i class="ri-time-line"></i></span> -->
+                      </div>
+                    </div>
+
+                    <div>
+                      <label
+                        for="card"
+                        class="block mb-2 text-sm font-medium text-gray-700"
+                        >Input with Payment</label
+                      >
                       <div class="relative">
                         <input
                           type="text"
-                          placeholder="info@gmail.com"
-                          class="pl-[62px] w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                          id="card"
+                          placeholder="Card number"
+                          class="block w-full rounded-md border border-gray-300 pl-16 py-2 text-sm focus:ring focus:ring-blue-200 focus:outline-none"
                         />
-                        <span class="absolute left-0 top-1/2 -translate-y-1/2 border-r border-gray-200 px-3.5 py-3 text-gray-500">
-                          <!-- Envelope Icon (Heroicons) -->
-                          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                              d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25H4.5A2.25 2.25 0 012.25 17.25V6.75A2.25 2.25 0 014.5 4.5h15a2.25 2.25 0 012.25 2.25zM3 6.75l9 5.25 9-5.25" />
-                          </svg>
+                        <span
+                          class="absolute left-0 top-1/2 flex h-11 w-[46px] -translate-y-1/2 items-center justify-center border-r border-gray-200"
+                        >
+                          <i class="ri-mastercard-fill"></i>
                         </span>
                       </div>
                     </div>
-                
-                    <!-- Phone Input (Prefix) -->
-                    <div>
-                      <label class="block text-sm font-medium text-gray-700 mb-1">Phone</label>
-                      <div class="flex">
-                        <select id="countryPrefix1" class="border border-gray-300 rounded-l-md px-2 py-2 bg-white">
-                          <option value="+1">US +1</option>
-                          <option value="+44">GB +44</option>
-                          <option value="+1">CA +1</option>
-                          <option value="+61">AU +61</option>
-                        </select>
-                        <input
-                          type="tel"
-                          id="phoneInput1"
-                          placeholder="+1 (555) 000-0000"
-                          class="w-full px-4 py-2 border-t border-b border-r border-gray-300 rounded-r-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  </div>
+                </div>
+
+                <script>
+                  // Toggle password visibility
+                  const passwordInput = document.getElementById("password");
+                  const togglePasswordBtn =
+                    document.getElementById("togglePassword");
+
+                  togglePasswordBtn.addEventListener("click", () => {
+                    const isPassword = passwordInput.type === "password";
+                    passwordInput.type = isPassword ? "text" : "password";
+                    togglePasswordBtn.innerHTML = isPassword
+                      ? `<i class="ri-eye-off-line"></i>`
+                      : `<i class="ri-eye-line"></i>`;
+                  });
+
+                  // Handle select change
+                  document
+                    .getElementById("selectInput")
+                    .addEventListener("change", function () {
+                      console.log("Selected value:", this.value);
+                    });
+                </script>
+              </div>
+              <!-- select input  -->
+              <div>
+                <div
+                  class="max-w-xl mx-auto bg-white p-6 rounded-lg shadow space-y-4"
+                >
+                  <div>
+                    <label class="block mb-2 text-sm font-medium text-gray-700"
+                      >Select Input</label
+                    >
+                    <select
+                      id="single-select"
+                      class="w-full border border-gray-300 rounded-md p-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    >
+                      <option value="">Select Option</option>
+                      <option value="marketing">Marketing</option>
+                      <option value="template">Template</option>
+                      <option value="development">Development</option>
+                    </select>
+                  </div>
+                  <label class="block mb-1 text-sm font-medium text-gray-700"
+                    >Multiple Select Options</label
+                  >
+
+                  <div class="relative">
+                    <!-- Tag display box -->
+                    <div
+                      id="selected-tags"
+                      class="flex flex-wrap items-center gap-2 p-2 border border-gray-300 rounded-md min-h-[42px] cursor-pointer"
+                      onclick="toggleDropdown()"
+                    >
+                      <span id="placeholder" class="text-gray-400"
+                        >Select options</span
+                      >
+                      <!-- Tags inserted dynamically here -->
+                      <svg
+                        id="dropdown-arrow"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="ml-auto w-5 h-5 text-gray-500 transition-transform duration-200"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M19 9l-7 7-7-7"
                         />
-                      </div>
+                      </svg>
                     </div>
-                
-                    <!-- Phone Input (Suffix) -->
-                    <div>
-                      <label class="block text-sm font-medium text-gray-700 mb-1">Phone</label>
-                      <div class="flex">
-                        <input
-                          type="tel"
-                          id="phoneInput2"
-                          placeholder="+1 (555) 000-0000"
-                          class="w-full px-4 py-2 border-t border-b border-l border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        />
-                        <select id="countryPrefix2" class="border border-gray-300 rounded-r-md px-2 py-2 bg-white">
-                          <option value="+1">US +1</option>
-                          <option value="+44">GB +44</option>
-                          <option value="+1">CA +1</option>
-                          <option value="+61">AU +61</option>
-                        </select>
+
+                    <!-- Dropdown list -->
+                    <div
+                      id="dropdown-options"
+                      class="absolute z-10 hidden mt-1 w-full bg-white border border-gray-300 rounded-md shadow-md"
+                    >
+                      <div class="max-h-48 overflow-y-auto">
+                        <!-- Options generated dynamically -->
                       </div>
                     </div>
                   </div>
-                
-                  <script>
-                    // Handle phone number changes
-                    const phoneInput1 = document.getElementById('phoneInput1');
-                    const countryPrefix1 = document.getElementById('countryPrefix1');
-                    const phoneInput2 = document.getElementById('phoneInput2');
-                    const countryPrefix2 = document.getElementById('countryPrefix2');
-                
-                    phoneInput1.addEventListener('input', () => {
-                      console.log("Updated phone number:", countryPrefix1.value + " " + phoneInput1.value);
+                </div>
+
+                <script>
+                  const options = [
+                    { value: "1", label: "Option 1" },
+                    { value: "2", label: "Option 2" },
+                    { value: "3", label: "Option 3" },
+                    { value: "4", label: "Option 4" },
+                    { value: "5", label: "Option 5" },
+                  ];
+
+                  const selectedValues = new Set(["2", "3", "4", "5"]); // default selected
+                  const dropdown = document.getElementById("dropdown-options");
+                  const tagContainer = document.getElementById("selected-tags");
+                  const placeholder = document.getElementById("placeholder");
+                  const arrow = document.getElementById("dropdown-arrow");
+
+                  function toggleDropdown() {
+                    dropdown.classList.toggle("hidden");
+                    arrow.classList.toggle("rotate-180");
+                  }
+
+                  function renderOptions() {
+                    const container = dropdown.querySelector("div");
+                    container.innerHTML = "";
+                    options.forEach((opt) => {
+                      const div = document.createElement("div");
+                      div.className =
+                        "px-4 py-2 hover:bg-gray-100 cursor-pointer text-sm";
+                      div.textContent = opt.label;
+                      div.onclick = () => toggleSelect(opt.value);
+                      container.appendChild(div);
                     });
-                
-                    phoneInput2.addEventListener('input', () => {
-                      console.log("Updated phone number:", phoneInput2.value + " " + countryPrefix2.value);
+                  }
+
+                  function toggleSelect(value) {
+                    if (selectedValues.has(value)) {
+                      selectedValues.delete(value);
+                    } else {
+                      selectedValues.add(value);
+                    }
+                    renderTags();
+                  }
+
+                  function removeTag(value) {
+                    selectedValues.delete(value);
+                    renderTags();
+                  }
+
+                  function renderTags() {
+                    // Remove all tags except the dropdown arrow
+                    const children = Array.from(tagContainer.children).filter(
+                      (child) => !child.id && !child.tagName.includes("svg")
+                    );
+                    children.forEach((child) => child.remove());
+
+                    if (selectedValues.size === 0) {
+                      placeholder.classList.remove("hidden");
+                    } else {
+                      placeholder.classList.add("hidden");
+                    }
+
+                    selectedValues.forEach((val) => {
+                      const opt = options.find((o) => o.value === val);
+                      if (!opt) return;
+
+                      const tag = document.createElement("span");
+                      tag.className =
+                        "bg-gray-200 text-gray-800 text-xs px-2 py-1 rounded-full flex items-center gap-1";
+
+                      const text = document.createElement("span");
+                      text.textContent = opt.label;
+
+                      const closeBtn = document.createElement("button");
+                      closeBtn.innerHTML = "&times;";
+                      closeBtn.className = "text-gray-500 hover:text-gray-700";
+                      closeBtn.onclick = (e) => {
+                        e.stopPropagation();
+                        removeTag(val);
+                      };
+
+                      tag.appendChild(text);
+                      tag.appendChild(closeBtn);
+                      tagContainer.insertBefore(tag, arrow);
                     });
-                  </script>
+                  }
+
+                  renderOptions();
+                  renderTags();
+
+                  // Close dropdown on outside click
+                  document.addEventListener("click", (e) => {
+                    if (!tagContainer.contains(e.target)) {
+                      dropdown.classList.add("hidden");
+                      arrow.classList.remove("rotate-180");
+                    }
+                  });
+                </script>
+              </div>
+              <!-- textarea input -->
+              <div>
+                <div
+                  class="max-w-xl mx-auto bg-white p-6 rounded-md shadow space-y-6"
+                >
+                  <h2 class="text-lg font-semibold">Textarea input field</h2>
+
+                  <!-- Default TextArea -->
+                  <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1"
+                      >Description</label
+                    >
+                    <textarea
+                      id="textarea1"
+                      rows="6"
+                      class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      placeholder="Write something..."
+                    ></textarea>
+                  </div>
+
+                  <!-- Disabled TextArea -->
+                  <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1"
+                      >Description</label
+                    >
+                    <textarea
+                      rows="6"
+                      class="w-full px-4 py-2 border border-gray-300 rounded-md bg-gray-100 text-gray-500"
+                      placeholder="Disabled"
+                      disabled
+                    ></textarea>
+                  </div>
+
+                  <!-- Error TextArea -->
+                  <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1"
+                      >Description</label
+                    >
+                    <textarea
+                      id="textarea2"
+                      rows="6"
+                      class="w-full px-4 py-2 border border-red-500 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+                      placeholder="Write something..."
+                    ></textarea>
+                    <p id="errorMsg" class="text-red-500 text-sm mt-1 hidden">
+                      Please enter a valid message.
+                    </p>
+                  </div>
+                </div>
+
+                <script>
+                  const textarea1 = document.getElementById("textarea1");
+                  const textarea2 = document.getElementById("textarea2");
+                  const errorMsg = document.getElementById("errorMsg");
+
+                  textarea1.addEventListener("input", (e) => {
+                    // Message 1 captured, do what you want
+                    console.log("TextArea 1:", e.target.value);
+                  });
+
+                  textarea2.addEventListener("input", (e) => {
+                    const value = e.target.value;
+                    if (value.trim().length < 3) {
+                      errorMsg.classList.remove("hidden");
+                      textarea2.classList.add("border-red-500");
+                    } else {
+                      errorMsg.classList.add("hidden");
+                      textarea2.classList.remove("border-red-500");
+                    }
+                  });
+                </script>
+              </div>
+              <!-- state input  -->
+              <div>
+                <div
+                  class="max-w-xl mx-auto bg-white p-6 rounded-md shadow space-y-6"
+                >
+                  <h2 class="text-lg font-semibold">Input States</h2>
+                  <p class="text-sm text-gray-600 mb-4">
+                    Validation styles for error, success and disabled states on
+                    form controls.
+                  </p>
+
+                  <!-- Error Input -->
+                  <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1"
+                      >Email</label
+                    >
+                    <input
+                      id="errorInput"
+                      type="email"
+                      placeholder="Enter your email"
+                      class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2"
+                    />
+                    <p id="errorHint" class="text-sm text-red-500 mt-1 hidden">
+                      This is an invalid email address.
+                    </p>
+                  </div>
+
+                  <!-- Success Input -->
+                  <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1"
+                      >Email</label
+                    >
+                    <input
+                      id="successInput"
+                      type="email"
+                      placeholder="Enter your email"
+                      class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2"
+                    />
+                    <p
+                      id="successHint"
+                      class="text-sm text-green-600 mt-1 hidden"
+                    >
+                      This is a success message.
+                    </p>
+                  </div>
+
+                  <!-- Disabled Input -->
+                  <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1"
+                      >Email</label
+                    >
+                    <input
+                      type="text"
+                      value="disabled@example.com"
+                      placeholder="Disabled email"
+                      disabled
+                      class="w-full px-4 py-2 border border-gray-300 bg-gray-100 text-gray-500 rounded-md"
+                    />
+                  </div>
+                </div>
+
+                <script>
+                  const errorInput = document.getElementById("errorInput");
+                  const successInput = document.getElementById("successInput");
+                  const errorHint = document.getElementById("errorHint");
+                  const successHint = document.getElementById("successHint");
+
+                  const validateEmail = (email) => {
+                    const regex =
+                      /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+                    return regex.test(email);
+                  };
+
+                  errorInput.addEventListener("input", (e) => {
+                    const value = e.target.value;
+                    const isValid = validateEmail(value);
+
+                    if (!isValid) {
+                      errorInput.classList.add(
+                        "border-red-500",
+                        "ring-red-500"
+                      );
+                      errorInput.classList.remove(
+                        "border-green-500",
+                        "ring-green-500"
+                      );
+                      errorHint.classList.remove("hidden");
+                    } else {
+                      errorInput.classList.remove(
+                        "border-red-500",
+                        "ring-red-500"
+                      );
+                      errorHint.classList.add("hidden");
+                    }
+                  });
+
+                  successInput.addEventListener("input", (e) => {
+                    const value = e.target.value;
+                    const isValid = validateEmail(value);
+
+                    if (isValid) {
+                      successInput.classList.add(
+                        "border-green-500",
+                        "ring-green-500"
+                      );
+                      successHint.classList.remove("hidden");
+                    } else {
+                      successInput.classList.remove(
+                        "border-green-500",
+                        "ring-green-500"
+                      );
+                      successHint.classList.add("hidden");
+                    }
+                  });
+                </script>
+              </div>
             </div>
-            <!-- file input  -->
-             <div>
-                <div class="max-w-xl mx-auto bg-white p-6 rounded-md shadow space-y-6">
-                    <h2 class="text-lg font-semibold">File Input</h2>
-                
-                    <!-- File input field -->
-                    <div>
-                      <label for="fileUpload" class="block text-sm font-medium text-gray-700 mb-2">Upload file</label>
+            <!-- right  -->
+            <div class="w-full flex flex-col gap-4 px-6 py-4">
+              <!-- input group  -->
+              <div>
+                <div
+                  class="max-w-xl mx-auto bg-white p-6 rounded-md shadow space-y-6"
+                >
+                  <h2 class="text-lg font-semibold">Input Group</h2>
+
+                  <!-- Email with icon -->
+                  <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1"
+                      >Email</label
+                    >
+                    <div class="relative">
                       <input
-                        type="file"
-                        id="fileUpload"
-                        class="block border rounded w-full text-sm text-gray-700 file:mr-4 file:py-2 file:px-4
-                               file:rounded file:border-0 file:text-sm file:font-semibold
-                               file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 custom-class"
+                        type="text"
+                        placeholder="info@gmail.com"
+                        class="pl-[62px] w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      />
+                      <span
+                        class="absolute left-0 top-1/2 -translate-y-1/2 border-r border-gray-200 px-3.5 py-3 text-gray-500"
+                      >
+                        <!-- Envelope Icon (Heroicons) -->
+                        <svg
+                          class="w-6 h-6"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="1.5"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25H4.5A2.25 2.25 0 012.25 17.25V6.75A2.25 2.25 0 014.5 4.5h15a2.25 2.25 0 012.25 2.25zM3 6.75l9 5.25 9-5.25"
+                          />
+                        </svg>
+                      </span>
+                    </div>
+                  </div>
+
+                  <!-- Phone Input (Prefix) -->
+                  <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1"
+                      >Phone</label
+                    >
+                    <div class="flex">
+                      <select
+                        id="countryPrefix1"
+                        class="border border-gray-300 rounded-l-md px-2 py-2 bg-white"
+                      >
+                        <option value="+1">US +1</option>
+                        <option value="+44">GB +44</option>
+                        <option value="+1">CA +1</option>
+                        <option value="+61">AU +61</option>
+                      </select>
+                      <input
+                        type="tel"
+                        id="phoneInput1"
+                        placeholder="+1 (555) 000-0000"
+                        class="w-full px-4 py-2 border-t border-b border-r border-gray-300 rounded-r-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                       />
                     </div>
                   </div>
-                
-                  <script>
-                    const fileInputUpload = document.getElementById('fileUpload');
-                
-                    fileInputUpload.addEventListener('change', function (event) {
-                      const file = event.target.files?.[0];
-                      if (file) {
-                        console.log("Selected file:", file.name);
-                      }
-                    });
-                  </script>
-             </div>
-             <!-- checkbox input   -->
-             <div>
-                <div class="max-w-xl mx-auto bg-white p-6 rounded-md shadow space-y-6">
-                    <h2 class="text-lg font-semibold">Checkbox</h2>
-                
-                    <div class="flex items-center gap-4">
-                      <!-- Default -->
-                      <div class="flex items-center gap-3">
-                        <input
-                          type="checkbox"
-                          id="defaultCheckbox"
-                          class="h-5 w-5 text-blue-600 border-gray-300 rounded focus:ring focus:ring-blue-200"
-                        />
-                        <label for="defaultCheckbox" class="text-sm font-medium text-gray-700">Default</label>
-                      </div>
-                
-                      <!-- Checked -->
-                      <div class="flex items-center gap-3">
-                        <input
-                          type="checkbox"
-                          id="checkedCheckbox"
-                          class="h-5 w-5 text-blue-600 border-gray-300 rounded focus:ring focus:ring-blue-200"
-                          checked
-                        />
-                        <label for="checkedCheckbox" class="text-sm font-medium text-gray-700">Checked</label>
-                      </div>
-                
-                      <!-- Disabled -->
-                      <div class="flex items-center gap-3">
-                        <input
-                          type="checkbox"
-                          id="disabledCheckbox"
-                          class="h-5 w-5 text-blue-600 border-gray-300 rounded"
-                          disabled
-                        />
-                        <label for="disabledCheckbox" class="text-sm font-medium text-gray-700">Disabled</label>
-                      </div>
+
+                  <!-- Phone Input (Suffix) -->
+                  <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1"
+                      >Phone</label
+                    >
+                    <div class="flex">
+                      <input
+                        type="tel"
+                        id="phoneInput2"
+                        placeholder="+1 (555) 000-0000"
+                        class="w-full px-4 py-2 border-t border-b border-l border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      />
+                      <select
+                        id="countryPrefix2"
+                        class="border border-gray-300 rounded-r-md px-2 py-2 bg-white"
+                      >
+                        <option value="+1">US +1</option>
+                        <option value="+44">GB +44</option>
+                        <option value="+1">CA +1</option>
+                        <option value="+61">AU +61</option>
+                      </select>
                     </div>
                   </div>
-                
-                  <script>
-                    const defaultCheckbox = document.getElementById("defaultCheckbox");
-                    const checkedCheckbox = document.getElementById("checkedCheckbox");
-                    const disabledCheckbox = document.getElementById("disabledCheckbox");
-                
-                    defaultCheckbox.addEventListener("change", () => {
-                      console.log("Default checkbox:", defaultCheckbox.checked);
-                    });
-                
-                    checkedCheckbox.addEventListener("change", () => {
-                      console.log("Checked checkbox:", checkedCheckbox.checked);
-                    });
-                
-                    // No listener on disabled, since it's disabled
-                  </script>
-             </div>
-             <!-- radio input   -->
+                </div>
+
+                <script>
+                  // Handle phone number changes
+                  const phoneInput1 = document.getElementById("phoneInput1");
+                  const countryPrefix1 =
+                    document.getElementById("countryPrefix1");
+                  const phoneInput2 = document.getElementById("phoneInput2");
+                  const countryPrefix2 =
+                    document.getElementById("countryPrefix2");
+
+                  phoneInput1.addEventListener("input", () => {
+                    console.log(
+                      "Updated phone number:",
+                      countryPrefix1.value + " " + phoneInput1.value
+                    );
+                  });
+
+                  phoneInput2.addEventListener("input", () => {
+                    console.log(
+                      "Updated phone number:",
+                      phoneInput2.value + " " + countryPrefix2.value
+                    );
+                  });
+                </script>
+              </div>
+              <!-- file input  -->
+              <div>
+                <div
+                  class="max-w-xl mx-auto bg-white p-6 rounded-md shadow space-y-6"
+                >
+                  <h2 class="text-lg font-semibold">File Input</h2>
+
+                  <!-- File input field -->
+                  <div>
+                    <label
+                      for="fileUpload"
+                      class="block text-sm font-medium text-gray-700 mb-2"
+                      >Upload file</label
+                    >
+                    <input
+                      type="file"
+                      id="fileUpload"
+                      class="block border rounded w-full text-sm text-gray-700 file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 custom-class"
+                    />
+                  </div>
+                </div>
+
+                <script>
+                  const fileInputUpload = document.getElementById("fileUpload");
+
+                  fileInputUpload.addEventListener("change", function (event) {
+                    const file = event.target.files?.[0];
+                    if (file) {
+                      console.log("Selected file:", file.name);
+                    }
+                  });
+                </script>
+              </div>
+              <!-- checkbox input   -->
+              <div>
+                <div
+                  class="max-w-xl mx-auto bg-white p-6 rounded-md shadow space-y-6"
+                >
+                  <h2 class="text-lg font-semibold">Checkbox</h2>
+
+                  <div class="flex items-center gap-4">
+                    <!-- Default -->
+                    <div class="flex items-center gap-3">
+                      <input
+                        type="checkbox"
+                        id="defaultCheckbox"
+                        class="h-5 w-5 text-blue-600 border-gray-300 rounded focus:ring focus:ring-blue-200"
+                      />
+                      <label
+                        for="defaultCheckbox"
+                        class="text-sm font-medium text-gray-700"
+                        >Default</label
+                      >
+                    </div>
+
+                    <!-- Checked -->
+                    <div class="flex items-center gap-3">
+                      <input
+                        type="checkbox"
+                        id="checkedCheckbox"
+                        class="h-5 w-5 text-blue-600 border-gray-300 rounded focus:ring focus:ring-blue-200"
+                        checked
+                      />
+                      <label
+                        for="checkedCheckbox"
+                        class="text-sm font-medium text-gray-700"
+                        >Checked</label
+                      >
+                    </div>
+
+                    <!-- Disabled -->
+                    <div class="flex items-center gap-3">
+                      <input
+                        type="checkbox"
+                        id="disabledCheckbox"
+                        class="h-5 w-5 text-blue-600 border-gray-300 rounded"
+                        disabled
+                      />
+                      <label
+                        for="disabledCheckbox"
+                        class="text-sm font-medium text-gray-700"
+                        >Disabled</label
+                      >
+                    </div>
+                  </div>
+                </div>
+
+                <script>
+                  const defaultCheckbox =
+                    document.getElementById("defaultCheckbox");
+                  const checkedCheckbox =
+                    document.getElementById("checkedCheckbox");
+                  const disabledCheckbox =
+                    document.getElementById("disabledCheckbox");
+
+                  defaultCheckbox.addEventListener("change", () => {
+                    console.log("Default checkbox:", defaultCheckbox.checked);
+                  });
+
+                  checkedCheckbox.addEventListener("change", () => {
+                    console.log("Checked checkbox:", checkedCheckbox.checked);
+                  });
+
+                  // No listener on disabled, since it's disabled
+                </script>
+              </div>
+              <!-- radio input   -->
               <div>
                 <div class="max-w-xl mx-auto bg-white p-6 rounded-md shadow">
-                    <h2 class="text-lg font-semibold mb-4">Radio Buttons</h2>
-                    <div class="flex flex-wrap items-center gap-8">
-                      <!-- Default -->
-                      <label class="flex items-center gap-2 text-gray-700">
-                        <input
-                          type="radio"
-                          name="group1"
-                          value="option1"
-                          id="radio1"
-                          class="text-blue-600 focus:ring focus:ring-blue-200"
-                        />
-                        Default
-                      </label>
-                
-                      <!-- Selected -->
-                      <label class="flex items-center gap-2 text-gray-700">
-                        <input
-                          type="radio"
-                          name="group1"
-                          value="option2"
-                          id="radio2"
-                          checked
-                          class="text-blue-600 focus:ring focus:ring-blue-200"
-                        />
-                        Selected
-                      </label>
-                
-                      <!-- Disabled -->
-                      <label class="flex items-center gap-2 text-gray-700 opacity-50">
-                        <input
-                          type="radio"
-                          name="group1"
-                          value="option3"
-                          id="radio3"
-                          disabled
-                          class="text-blue-600"
-                        />
-                        Disabled
-                      </label>
-                    </div>
+                  <h2 class="text-lg font-semibold mb-4">Radio Buttons</h2>
+                  <div class="flex flex-wrap items-center gap-8">
+                    <!-- Default -->
+                    <label class="flex items-center gap-2 text-gray-700">
+                      <input
+                        type="radio"
+                        name="group1"
+                        value="option1"
+                        id="radio1"
+                        class="text-blue-600 focus:ring focus:ring-blue-200"
+                      />
+                      Default
+                    </label>
+
+                    <!-- Selected -->
+                    <label class="flex items-center gap-2 text-gray-700">
+                      <input
+                        type="radio"
+                        name="group1"
+                        value="option2"
+                        id="radio2"
+                        checked
+                        class="text-blue-600 focus:ring focus:ring-blue-200"
+                      />
+                      Selected
+                    </label>
+
+                    <!-- Disabled -->
+                    <label
+                      class="flex items-center gap-2 text-gray-700 opacity-50"
+                    >
+                      <input
+                        type="radio"
+                        name="group1"
+                        value="option3"
+                        id="radio3"
+                        disabled
+                        class="text-blue-600"
+                      />
+                      Disabled
+                    </label>
                   </div>
-                
-                  <script>
-                    const radios = document.querySelectorAll('input[name="group1"]');
-                    radios.forEach(radio => {
-                      radio.addEventListener("change", (e) => {
-                        console.log("Selected value:", e.target.value);
-                      });
+                </div>
+
+                <script>
+                  const radios = document.querySelectorAll(
+                    'input[name="group1"]'
+                  );
+                  radios.forEach((radio) => {
+                    radio.addEventListener("change", (e) => {
+                      console.log("Selected value:", e.target.value);
                     });
-                  </script>
+                  });
+                </script>
               </div>
               <!-- toggle input  -->
-               <div>
+              <div>
                 <div class="max-w-xl mx-auto bg-white p-6 rounded-md shadow">
-                    <h2 class="text-lg font-semibold mb-4">Toggle Switch Input</h2>
-                
-                    <!-- First Row -->
-                    <div class="flex gap-4 mb-6">
-                      <label class="flex items-center gap-2 cursor-pointer">
-                        <span>Default</span>
-                        <div class="switch relative inline-block w-12 h-6">
-                          <input type="checkbox" checked onchange="handleSwitchChange(this)" />
-                          <span class="slider absolute inset-0 bg-gray-300 rounded-full before:absolute before:content-[''] before:h-5 before:w-5 before:left-0.5 before:top-0.5 before:bg-white before:rounded-full"></span>
-                        </div>
-                      </label>
-                
-                      <label class="flex items-center gap-2 cursor-pointer">
-                        <span>Checked</span>
-                        <div class="switch relative inline-block w-12 h-6">
-                          <input type="checkbox" checked onchange="handleSwitchChange(this)" />
-                          <span class="slider absolute inset-0 bg-gray-300 rounded-full before:absolute before:content-[''] before:h-5 before:w-5 before:left-0.5 before:top-0.5 before:bg-white before:rounded-full"></span>
-                        </div>
-                      </label>
-                
-                      <label class="flex items-center gap-2 cursor-not-allowed opacity-50">
-                        <span>Disabled</span>
-                        <div class="switch relative inline-block w-12 h-6">
-                          <input type="checkbox" disabled />
-                          <span class="slider absolute inset-0 bg-gray-300 rounded-full before:absolute before:content-[''] before:h-5 before:w-5 before:left-0.5 before:top-0.5 before:bg-white before:rounded-full"></span>
-                        </div>
-                      </label>
-                    </div>
-                
-                    <!-- Second Row (gray color override if needed) -->
-                    <div class="flex gap-4">
-                      <label class="flex items-center gap-2 cursor-pointer">
-                        <span>Default</span>
-                        <div class="switch relative inline-block w-12 h-6">
-                          <input type="checkbox" checked onchange="handleSwitchChange(this)" />
-                          <span class="slider absolute inset-0 bg-gray-500 rounded-full before:absolute before:content-[''] before:h-5 before:w-5 before:left-0.5 before:top-0.5 before:bg-white before:rounded-full"></span>
-                        </div>
-                      </label>
-                
-                      <label class="flex items-center gap-2 cursor-pointer">
-                        <span>Checked</span>
-                        <div class="switch relative inline-block w-12 h-6">
-                          <input type="checkbox" checked onchange="handleSwitchChange(this)" />
-                          <span class="slider absolute inset-0 bg-gray-500 rounded-full before:absolute before:content-[''] before:h-5 before:w-5 before:left-0.5 before:top-0.5 before:bg-white before:rounded-full"></span>
-                        </div>
-                      </label>
-                
-                      <label class="flex items-center gap-2 cursor-not-allowed opacity-50">
-                        <span>Disabled</span>
-                        <div class="switch relative inline-block w-12 h-6">
-                          <input type="checkbox" disabled />
-                          <span class="slider absolute inset-0 bg-gray-500 rounded-full before:absolute before:content-[''] before:h-5 before:w-5 before:left-0.5 before:top-0.5 before:bg-white before:rounded-full"></span>
-                        </div>
-                      </label>
-                    </div>
+                  <h2 class="text-lg font-semibold mb-4">
+                    Toggle Switch Input
+                  </h2>
+
+                  <!-- First Row -->
+                  <div class="flex gap-4 mb-6">
+                    <label class="flex items-center gap-2 cursor-pointer">
+                      <span>Default</span>
+                      <div class="switch relative inline-block w-12 h-6">
+                        <input
+                          type="checkbox"
+                          checked
+                          onchange="handleSwitchChange(this)"
+                        />
+                        <span
+                          class="slider absolute inset-0 bg-gray-300 rounded-full before:absolute before:content-[''] before:h-5 before:w-5 before:left-0.5 before:top-0.5 before:bg-white before:rounded-full"
+                        ></span>
+                      </div>
+                    </label>
+
+                    <label class="flex items-center gap-2 cursor-pointer">
+                      <span>Checked</span>
+                      <div class="switch relative inline-block w-12 h-6">
+                        <input
+                          type="checkbox"
+                          checked
+                          onchange="handleSwitchChange(this)"
+                        />
+                        <span
+                          class="slider absolute inset-0 bg-gray-300 rounded-full before:absolute before:content-[''] before:h-5 before:w-5 before:left-0.5 before:top-0.5 before:bg-white before:rounded-full"
+                        ></span>
+                      </div>
+                    </label>
+
+                    <label
+                      class="flex items-center gap-2 cursor-not-allowed opacity-50"
+                    >
+                      <span>Disabled</span>
+                      <div class="switch relative inline-block w-12 h-6">
+                        <input type="checkbox" disabled />
+                        <span
+                          class="slider absolute inset-0 bg-gray-300 rounded-full before:absolute before:content-[''] before:h-5 before:w-5 before:left-0.5 before:top-0.5 before:bg-white before:rounded-full"
+                        ></span>
+                      </div>
+                    </label>
                   </div>
-                
-                  <script>
-                    function handleSwitchChange(el) {
-                      console.log("Switch is now:", el.checked ? "ON" : "OFF");
-                    }
-                  </script>
-               </div>
-               <!-- drop zone  -->
-                <div>
-                    <div class="max-w-xl mx-auto bg-white p-6 rounded-xl shadow-md">
-                        <h2 class="text-lg font-semibold mb-4">Dropzone</h2>
-                    
-                        <div 
-                          id="dropzone"
-                          class="transition border border-dashed border-gray-300 cursor-pointer rounded-xl hover:border-blue-500 bg-gray-50 p-10 text-center"
+
+                  <!-- Second Row (gray color override if needed) -->
+                  <div class="flex gap-4">
+                    <label class="flex items-center gap-2 cursor-pointer">
+                      <span>Default</span>
+                      <div class="switch relative inline-block w-12 h-6">
+                        <input
+                          type="checkbox"
+                          checked
+                          onchange="handleSwitchChange(this)"
+                        />
+                        <span
+                          class="slider absolute inset-0 bg-gray-500 rounded-full before:absolute before:content-[''] before:h-5 before:w-5 before:left-0.5 before:top-0.5 before:bg-white before:rounded-full"
+                        ></span>
+                      </div>
+                    </label>
+
+                    <label class="flex items-center gap-2 cursor-pointer">
+                      <span>Checked</span>
+                      <div class="switch relative inline-block w-12 h-6">
+                        <input
+                          type="checkbox"
+                          checked
+                          onchange="handleSwitchChange(this)"
+                        />
+                        <span
+                          class="slider absolute inset-0 bg-gray-500 rounded-full before:absolute before:content-[''] before:h-5 before:w-5 before:left-0.5 before:top-0.5 before:bg-white before:rounded-full"
+                        ></span>
+                      </div>
+                    </label>
+
+                    <label
+                      class="flex items-center gap-2 cursor-not-allowed opacity-50"
+                    >
+                      <span>Disabled</span>
+                      <div class="switch relative inline-block w-12 h-6">
+                        <input type="checkbox" disabled />
+                        <span
+                          class="slider absolute inset-0 bg-gray-500 rounded-full before:absolute before:content-[''] before:h-5 before:w-5 before:left-0.5 before:top-0.5 before:bg-white before:rounded-full"
+                        ></span>
+                      </div>
+                    </label>
+                  </div>
+                </div>
+
+                <script>
+                  function handleSwitchChange(el) {
+                    console.log("Switch is now:", el.checked ? "ON" : "OFF");
+                  }
+                </script>
+              </div>
+              <!-- drop zone  -->
+              <div>
+                <div class="max-w-xl mx-auto bg-white p-6 rounded-xl shadow-md">
+                  <h2 class="text-lg font-semibold mb-4">Dropzone</h2>
+
+                  <div
+                    id="dropzone"
+                    class="transition border border-dashed border-gray-300 cursor-pointer rounded-xl hover:border-blue-500 bg-gray-50 p-10 text-center"
+                  >
+                    <input
+                      type="file"
+                      id="fileInput"
+                      class="hidden"
+                      accept=".png,.jpg,.jpeg,.webp,.svg"
+                      multiple
+                    />
+                    <div class="flex flex-col items-center">
+                      <!-- Icon -->
+                      <div class="mb-6 flex justify-center">
+                        <div
+                          class="flex h-[68px] w-[68px] items-center justify-center rounded-full bg-gray-200 text-gray-700"
                         >
-                          <input
-                            type="file"
-                            id="fileInput"
-                            class="hidden"
-                            accept=".png,.jpg,.jpeg,.webp,.svg"
-                            multiple
-                          />
-                          <div class="flex flex-col items-center">
-                            <!-- Icon -->
-                            <div class="mb-6 flex justify-center">
-                              <div class="flex h-[68px] w-[68px] items-center justify-center rounded-full bg-gray-200 text-gray-700">
-                                <svg class="fill-current" width="29" height="28" viewBox="0 0 29 28" xmlns="http://www.w3.org/2000/svg">
-                                  <path fill-rule="evenodd" clip-rule="evenodd" d="M14.5019 3.91699C14.2852 3.91699 14.0899 4.00891 13.953 4.15589L8.57363 9.53186C8.28065 9.82466 8.2805 10.2995 8.5733 10.5925C8.8661 10.8855 9.34097 10.8857 9.63396 10.5929L13.7519 6.47752V18.667C13.7519 19.0812 14.0877 19.417 14.5019 19.417C14.9161 19.417 15.2519 19.0812 15.2519 18.667V6.48234L19.3653 10.5929C19.6583 10.8857 20.1332 10.8855 20.426 10.5925C20.7188 10.2995 20.7186 9.82463 20.4256 9.53184L15.0838 4.19378C14.9463 4.02488 14.7367 3.91699 14.5019 3.91699ZM5.91626 18.667C5.91626 18.2528 5.58047 17.917 5.16626 17.917C4.75205 17.917 4.41626 18.2528 4.41626 18.667V21.8337C4.41626 23.0763 5.42362 24.0837 6.66626 24.0837H22.3339C23.5766 24.0837 24.5839 23.0763 24.5839 21.8337V18.667C24.5839 18.2528 24.2482 17.917 23.8339 17.917C23.4197 17.917 23.0839 18.2528 23.0839 18.667V21.8337C23.0839 22.2479 22.7482 22.5837 22.3339 22.5837H6.66626C6.25205 22.5837 5.91626 22.2479 5.91626 21.8337V18.667Z"/>
-                                </svg>
-                              </div>
-                            </div>
-                    
-                            <!-- Text -->
-                            <h4 id="dropText" class="mb-3 font-semibold text-gray-800 text-lg">
-                              Drag & Drop Files Here
-                            </h4>
-                            <span class="text-center mb-5 block max-w-[290px] text-sm text-gray-700">
-                              Drag and drop your PNG, JPG, WebP, SVG images here or browse
-                            </span>
-                    
-                            <span class="font-medium underline text-sm text-blue-500 cursor-pointer" onclick="document.getElementById('fileInput').click()">
-                              Browse File
-                            </span>
-                          </div>
+                          <svg
+                            class="fill-current"
+                            width="29"
+                            height="28"
+                            viewBox="0 0 29 28"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              fill-rule="evenodd"
+                              clip-rule="evenodd"
+                              d="M14.5019 3.91699C14.2852 3.91699 14.0899 4.00891 13.953 4.15589L8.57363 9.53186C8.28065 9.82466 8.2805 10.2995 8.5733 10.5925C8.8661 10.8855 9.34097 10.8857 9.63396 10.5929L13.7519 6.47752V18.667C13.7519 19.0812 14.0877 19.417 14.5019 19.417C14.9161 19.417 15.2519 19.0812 15.2519 18.667V6.48234L19.3653 10.5929C19.6583 10.8857 20.1332 10.8855 20.426 10.5925C20.7188 10.2995 20.7186 9.82463 20.4256 9.53184L15.0838 4.19378C14.9463 4.02488 14.7367 3.91699 14.5019 3.91699ZM5.91626 18.667C5.91626 18.2528 5.58047 17.917 5.16626 17.917C4.75205 17.917 4.41626 18.2528 4.41626 18.667V21.8337C4.41626 23.0763 5.42362 24.0837 6.66626 24.0837H22.3339C23.5766 24.0837 24.5839 23.0763 24.5839 21.8337V18.667C24.5839 18.2528 24.2482 17.917 23.8339 17.917C23.4197 17.917 23.0839 18.2528 23.0839 18.667V21.8337C23.0839 22.2479 22.7482 22.5837 22.3339 22.5837H6.66626C6.25205 22.5837 5.91626 22.2479 5.91626 21.8337V18.667Z"
+                            />
+                          </svg>
                         </div>
                       </div>
-                    
-                      <script>
-                        const dropzone = document.getElementById("dropzone");
-                        const fileInput = document.getElementById("fileInput");
-                        const dropText = document.getElementById("dropText");
-                    
-                        dropzone.addEventListener("dragover", function (e) {
-                          e.preventDefault();
-                          dropzone.classList.add("border-blue-500", "bg-gray-100");
-                          dropText.innerText = "Drop Files Here";
-                        });
-                    
-                        dropzone.addEventListener("dragleave", function () {
-                          dropzone.classList.remove("border-blue-500", "bg-gray-100");
-                          dropText.innerText = "Drag & Drop Files Here";
-                        });
-                    
-                        dropzone.addEventListener("drop", function (e) {
-                          e.preventDefault();
-                          dropzone.classList.remove("border-blue-500", "bg-gray-100");
-                          dropText.innerText = "Drag & Drop Files Here";
-                    
-                          const files = e.dataTransfer.files;
-                          handleFiles(files);
-                        });
-                    
-                        fileInput.addEventListener("change", function () {
-                          handleFiles(fileInput.files);
-                        });
-                    
-                        function handleFiles(files) {
-                          console.log("Files dropped:", [...files]);
-                          // Handle file uploads or previews
-                        }
-                      </script>
+
+                      <!-- Text -->
+                      <h4
+                        id="dropText"
+                        class="mb-3 font-semibold text-gray-800 text-lg"
+                      >
+                        Drag & Drop Files Here
+                      </h4>
+                      <span
+                        class="text-center mb-5 block max-w-[290px] text-sm text-gray-700"
+                      >
+                        Drag and drop your PNG, JPG, WebP, SVG images here or
+                        browse
+                      </span>
+
+                      <span
+                        class="font-medium underline text-sm text-blue-500 cursor-pointer"
+                        onclick="document.getElementById('fileInput').click()"
+                      >
+                        Browse File
+                      </span>
+                    </div>
+                  </div>
                 </div>
+
+                <script>
+                  const dropzone = document.getElementById("dropzone");
+                  const fileInput = document.getElementById("fileInput");
+                  const dropText = document.getElementById("dropText");
+
+                  dropzone.addEventListener("dragover", function (e) {
+                    e.preventDefault();
+                    dropzone.classList.add("border-blue-500", "bg-gray-100");
+                    dropText.innerText = "Drop Files Here";
+                  });
+
+                  dropzone.addEventListener("dragleave", function () {
+                    dropzone.classList.remove("border-blue-500", "bg-gray-100");
+                    dropText.innerText = "Drag & Drop Files Here";
+                  });
+
+                  dropzone.addEventListener("drop", function (e) {
+                    e.preventDefault();
+                    dropzone.classList.remove("border-blue-500", "bg-gray-100");
+                    dropText.innerText = "Drag & Drop Files Here";
+
+                    const files = e.dataTransfer.files;
+                    handleFiles(files);
+                  });
+
+                  fileInput.addEventListener("change", function () {
+                    handleFiles(fileInput.files);
+                  });
+
+                  function handleFiles(files) {
+                    console.log("Files dropped:", [...files]);
+                    // Handle file uploads or previews
+                  }
+                </script>
+              </div>
+            </div>
           </div>
-
         </div>
-       </div>
-
-
+      </div>
     </div>
-
-   </div>
-   <script>
-    const aside = document.getElementById('aside');
-    const main = document.getElementById('main');
-    const toggleButton = document.getElementById('sidebarToggle');
-    toggleButton.addEventListener('click', () => {
-      aside.classList.toggle('hidden');
-     
-    });
-   </script>
-</body>
+    <script>
+      const aside = document.getElementById("aside");
+      const main = document.getElementById("main");
+      const toggleButton = document.getElementById("sidebarToggle");
+      toggleButton.addEventListener("click", () => {
+        aside.classList.toggle("hidden");
+      });
+    </script>
+  </body>
 </html>
