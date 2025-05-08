@@ -10,27 +10,6 @@
       href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"
       rel="stylesheet"
     />
-    <!-- FullCalendar CSS -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.css"
-      rel="stylesheet"
-    />
-
-    <style>
-      /* Custom event colors */
-      .fc-bg-danger {
-        background-color: #f87171 !important;
-      }
-      .fc-bg-success {
-        background-color: #34d399 !important;
-      }
-      .fc-bg-primary {
-        background-color: #3b82f6 !important;
-      }
-      .fc-bg-warning {
-        background-color: #fbbf24 !important;
-      }
-    </style>
   </head>
   <body>
     <div class="min-h-screen flex">
@@ -447,144 +426,236 @@
           });
         </script>
 
-        <div class="flex-1 flex flex-col">
-          <div>
-            <div class="container mx-auto p-4">
-              <!-- Calendar Container -->
-              <div
-                class="rounded-2xl border border-gray-200 bg-white p-4"
-              >
-                <div class="text-center mb-6">
-                  <h1 class="text-2xl font-bold">Calendar</h1>
-                  <button
-                    id="openModalBtn"
-                    class="mt-4 rounded-lg bg-blue-600 px-4 py-2 text-white hover:bg-blue-700"
-                  >
-                    Add Event +
-                  </button>
-                </div>
-
-                <!-- Dummy Events List -->
-                <div class="grid md:grid-cols-3 gap-4 text-sm">
-                  <div class="p-4 bg-red-100 text-red-700 rounded shadow">
-                    <strong>Event Conf.</strong>
-                    <p>Start: 2025-05-07</p>
-                  </div>
-                  <div class="p-4 bg-green-100 text-green-700 rounded shadow">
-                    <strong>Meeting</strong>
-                    <p>Start: 2025-05-08</p>
-                  </div>
-                  <div class="p-4 bg-blue-100 text-blue-700 rounded shadow">
-                    <strong>Workshop</strong>
-                    <p>Start: 2025-05-09</p>
-                    <p>End: 2025-05-10</p>
-                  </div>
-                </div>
+        <div class="flex-1 flex flex-col p-6">
+          <div class="space-y-5 sm:space-y-6">
+            <div
+              class="rounded-2xl border border-gray-200 bg-white :border-gray-800 :bg-white/[0.03]"
+            >
+              <div class="px-6 py-5">
+                <h3 class="text-base font-medium text-gray-800 :text-white/90">
+                  Success Alert
+                </h3>
               </div>
-
-              <!-- Modal -->
-              <div
-                id="calendarModal"
-                class="fixed inset-0 hidden items-center justify-center bg-black/50 p-4 z-50"
-              >
-                <div
-                  class="bg-white max-w-2xl w-full rounded-lg p-6 lg:p-10 overflow-y-auto max-h-screen"
-                >
-                  <h2 class="text-xl font-semibold mb-2">Add Event</h2>
-                  <p class="text-sm text-gray-500 dark:text-gray-400 mb-6">
-                    Plan your next big moment: schedule or edit an event to stay
-                    on track
-                  </p>
-
-                  <!-- Title Input -->
-                  <label class="block mb-2 text-sm font-medium"
-                    >Event Title</label
+              <div class="p-4 border-t border-gray-100 :border-gray-800 sm:p-6">
+                <div class="space-y-6">
+                  <div
+                    class="rounded-xl border p-4 border-green-500 bg-green-50 :border-green-500/30 :bg-green-500/15"
                   >
-                  <input
-                    type="text"
-                    class="w-full rounded-lg border px-4 py-2 border-gray-300 "
-                    placeholder="Enter event title"
-                  />
-
-                  <!-- Color Selection -->
-                  <label class="block mt-6 mb-2 text-sm font-medium"
-                    >Event Color</label
-                  >
-                  <div class="flex gap-4 flex-wrap">
-                    <label class="flex items-center gap-2 text-sm">
-                      <input type="radio" name="color" class="accent-red-500" />
-                      Danger
-                    </label>
-                    <label class="flex items-center gap-2 text-sm">
-                      <input
-                        type="radio"
-                        name="color"
-                        class="accent-green-500"
-                      />
-                      Success
-                    </label>
-                    <label class="flex items-center gap-2 text-sm">
-                      <input
-                        type="radio"
-                        name="color"
-                        class="accent-blue-500"
-                      />
-                      Primary
-                    </label>
-                    <label class="flex items-center gap-2 text-sm">
-                      <input
-                        type="radio"
-                        name="color"
-                        class="accent-yellow-500"
-                      />
-                      Warning
-                    </label>
+                    <div class="flex items-start gap-3">
+                      <div class="-mt-0.5 text-green-500">
+                        <i class="ri-checkbox-circle-line"></i>
+                      </div>
+                      <div>
+                        <h4
+                          class="mb-1 text-sm font-semibold text-gray-800 :text-white/90"
+                        >
+                          Success Message
+                        </h4>
+                        <p class="text-sm text-gray-500 :text-gray-400">
+                          Be cautious when performing this action.
+                        </p>
+                        <a
+                          class="inline-block mt-3 text-sm font-medium text-gray-500 underline :text-gray-400"
+                          href="/"
+                          data-discover="true"
+                          >Learn more</a
+                        >
+                      </div>
+                    </div>
                   </div>
-
-                  <!-- Start Date -->
-                  <label class="block mt-6 mb-2 text-sm font-medium"
-                    >Start Date</label
+                  <div
+                    class="rounded-xl border p-4 border-green-500 bg-green-50 :border-green-500/30 :bg-green-500/15"
                   >
-                  <input
-                    type="date"
-                    class="w-full rounded-lg border px-4 py-2 border-gray-300 "
-                  />
-
-                  <!-- End Date -->
-                  <label class="block mt-6 mb-2 text-sm font-medium"
-                    >End Date</label
-                  >
-                  <input
-                    type="date"
-                    class="w-full rounded-lg border px-4 py-2 border-gray-300 "
-                  />
-
-                  <!-- Buttons -->
-                  <div class="flex justify-end gap-4 mt-8">
-                    <button
-                      id="closeModalBtn"
-                      class="rounded-lg border border-gray-300 px-4 py-2 text-sm "
-                    >
-                      Close
-                    </button>
-                    <button
-                      class="rounded-lg bg-blue-600 px-4 py-2 text-sm text-white hover:bg-blue-700"
-                    >
-                      Add Event
-                    </button>
+                    <div class="flex items-start gap-3">
+                      <div class="-mt-0.5 text-green-500">
+                        <i class="ri-checkbox-circle-line"></i>
+                      </div>
+                      <div>
+                        <h4
+                          class="mb-1 text-sm font-semibold text-gray-800 :text-white/90"
+                        >
+                          Success Message
+                        </h4>
+                        <p class="text-sm text-gray-500 :text-gray-400">
+                          Be cautious when performing this action.
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-
-            <!-- Modal JS -->
-            <script>
-              const modal = document.getElementById("calendarModal");
-              document.getElementById("openModalBtn").onclick = () =>
-                (modal.style.display = "flex");
-              document.getElementById("closeModalBtn").onclick = () =>
-                (modal.style.display = "none");
-            </script>
+            <div
+              class="rounded-2xl border border-gray-200 bg-white :border-gray-800 :bg-white/[0.03]"
+            >
+              <div class="px-6 py-5">
+                <h3 class="text-base font-medium text-gray-800 :text-white/90">
+                  Warning Alert
+                </h3>
+              </div>
+              <div class="p-4 border-t border-gray-100 :border-gray-800 sm:p-6">
+                <div class="space-y-6">
+                  <div
+                    class="rounded-xl border p-4 border-orange-500 bg-orange-50 :border-orange-500/30 :bg-orange-500/15"
+                  >
+                    <div class="flex items-start gap-3">
+                      <div class="-mt-0.5 text-orange-500">
+                        <i class="ri-error-warning-line"></i>
+                      </div>
+                      <div>
+                        <h4
+                          class="mb-1 text-sm font-semibold text-gray-800 :text-white/90"
+                        >
+                          Warning Message
+                        </h4>
+                        <p class="text-sm text-gray-500 :text-gray-400">
+                          Be cautious when performing this action.
+                        </p>
+                        <a
+                          class="inline-block mt-3 text-sm font-medium text-gray-500 underline :text-gray-400"
+                          href="/"
+                          data-discover="true"
+                          >Learn more</a
+                        >
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="rounded-xl border p-4 border-orange-500 bg-orange-50 :border-orange-500/30 :bg-orange-500/15"
+                  >
+                    <div class="flex items-start gap-3">
+                      <div class="-mt-0.5 text-orange-500">
+                        <i class="ri-error-warning-line"></i>
+                      </div>
+                      <div>
+                        <h4
+                          class="mb-1 text-sm font-semibold text-gray-800 :text-white/90"
+                        >
+                          Warning Message
+                        </h4>
+                        <p class="text-sm text-gray-500 :text-gray-400">
+                          Be cautious when performing this action.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="rounded-2xl border border-gray-200 bg-white :border-gray-800 :bg-white/[0.03]"
+            >
+              <div class="px-6 py-5">
+                <h3 class="text-base font-medium text-gray-800 :text-white/90">
+                  Error Alert
+                </h3>
+              </div>
+              <div class="p-4 border-t border-gray-100 :border-gray-800 sm:p-6">
+                <div class="space-y-6">
+                  <div
+                    class="rounded-xl border p-4 border-red-500 bg-red-50 :border-red-500/30 :bg-red-500/15"
+                  >
+                    <div class="flex items-start gap-3">
+                      <div class="-mt-0.5 text-red-500">
+                        <i class="ri-error-warning-line"></i>
+                      </div>
+                      <div>
+                        <h4
+                          class="mb-1 text-sm font-semibold text-gray-800 :text-white/90"
+                        >
+                          Error Message
+                        </h4>
+                        <p class="text-sm text-gray-500 :text-gray-400">
+                          Be cautious when performing this action.
+                        </p>
+                        <a
+                          class="inline-block mt-3 text-sm font-medium text-gray-500 underline :text-gray-400"
+                          href="/"
+                          data-discover="true"
+                          >Learn more</a
+                        >
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="rounded-xl border p-4 border-red-500 bg-red-50 :border-red-500/30 :bg-red-500/15"
+                  >
+                    <div class="flex items-start gap-3">
+                      <div class="-mt-0.5 text-red-500">
+                        <i class="ri-error-warning-line"></i>
+                      </div>
+                      <div>
+                        <h4
+                          class="mb-1 text-sm font-semibold text-gray-800 :text-white/90"
+                        >
+                          Error Message
+                        </h4>
+                        <p class="text-sm text-gray-500 :text-gray-400">
+                          Be cautious when performing this action.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="rounded-2xl border border-gray-200 bg-white :border-gray-800 :bg-white/[0.03]"
+            >
+              <div class="px-6 py-5">
+                <h3 class="text-base font-medium text-gray-800 :text-white/90">
+                  Info Alert
+                </h3>
+              </div>
+              <div class="p-4 border-t border-gray-100 :border-gray-800 sm:p-6">
+                <div class="space-y-6">
+                  <div
+                    class="rounded-xl border p-4 border-blue-500 bg-blue-50 :border-blue-500/30 :bg-blue-500/15"
+                  >
+                    <div class="flex items-start gap-3">
+                      <div class="-mt-0.5 text-blue-500">
+                        <i class="ri-error-warning-line"></i>
+                      </div>
+                      <div>
+                        <h4
+                          class="mb-1 text-sm font-semibold text-gray-800 :text-white/90"
+                        >
+                          Info Message
+                        </h4>
+                        <p class="text-sm text-gray-500 :text-gray-400">
+                          Be cautious when performing this action.
+                        </p>
+                        <a
+                          class="inline-block mt-3 text-sm font-medium text-gray-500 underline :text-gray-400"
+                          href="/"
+                          data-discover="true"
+                          >Learn more</a
+                        >
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="rounded-xl border p-4 border-blue-500 bg-blue-50 :border-blue-500/30 :bg-blue-500/15"
+                  >
+                    <div class="flex items-start gap-3">
+                      <div class="-mt-0.5 text-blue-500">
+                        <i class="ri-error-warning-line"></i>
+                      </div>
+                      <div>
+                        <h4
+                          class="mb-1 text-sm font-semibold text-gray-800 :text-white/90"
+                        >
+                          Info Message
+                        </h4>
+                        <p class="text-sm text-gray-500 :text-gray-400">
+                          Be cautious when performing this action.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

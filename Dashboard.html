@@ -13,10 +13,10 @@
   </head>
   <body>
     <div class="min-h-screen flex">
-      <div id="aside" class="hidden lg:block w-64">
+      <div id="aside" class="hidden lg:block w-64 h-screen">
         <aside
           id="sidebar"
-          class="h-screen bg-white border-r border-gray-200 overflow-y-auto"
+          class="h-screen bg-white border-r border-gray-200 overflow-y-auto pb-8"
         >
           <div class="p-5">
             <a href="Dashboard.html">
@@ -82,8 +82,10 @@
                   class="overflow-hidden transition-all duration-300 max-h-0"
                 >
                   <ul class="ml-9 mt-2 space-y-1">
-                    <li>
-                      <a href="form.html" class="menu-dropdown-item-inactive"
+                    <li class="hover:bg-blue-100/50 rounded">
+                      <a
+                        href="Form.html"
+                        class="menu-dropdown-item-inactive p-2 block"
                         >Form Elements</a
                       >
                     </li>
@@ -107,15 +109,17 @@
                   class="overflow-hidden transition-all duration-300 max-h-0"
                 >
                   <ul class="ml-9 mt-2 space-y-1">
-                    <li>
-                      <a href="Table.html" class="menu-dropdown-item-inactive"
+                    <li class="hover:bg-blue-100/50 rounded">
+                      <a
+                        href="Table.html"
+                        class="menu-dropdown-item-inactive p-2 block"
                         >Basic Table</a
                       >
                     </li>
-                    <li>
+                    <li class="hover:bg-blue-100/50 rounded">
                       <a
                         href="DataTable.html"
-                        class="menu-dropdown-item-inactive"
+                        class="menu-dropdown-item-inactive p-2 block"
                         >Data Table</a
                       >
                     </li>
@@ -129,7 +133,7 @@
                   class="menu-item-inactive w-full flex items-center justify-between px-3 py-2 rounded"
                 >
                   <span class="flex items-center gap-3">
-                    <i class="ri-table-line"></i>
+                    <i class="ri-file-copy-line"></i>
                     <span>Pages</span>
                   </span>
                   <span><i class="ri-arrow-right-s-line"></i></span>
@@ -139,17 +143,17 @@
                   class="overflow-hidden transition-all duration-300 max-h-0"
                 >
                   <ul class="ml-9 mt-2 space-y-1">
-                    <li>
+                    <li class="hover:bg-blue-100/50 rounded">
                       <a
                         href="ErrorPage.html"
-                        class="menu-dropdown-item-inactive"
+                        class="menu-dropdown-item-inactive p-2 block"
                         >Error Page</a
                       >
                     </li>
-                    <li>
+                    <li class="hover:bg-blue-100/50 rounded">
                       <a
                         href="BlankPage.html"
-                        class="menu-dropdown-item-inactive"
+                        class="menu-dropdown-item-inactive p-2 block"
                         >Blank Page</a
                       >
                     </li>
@@ -176,14 +180,65 @@
                   class="overflow-hidden transition-all duration-300 max-h-0"
                 >
                   <ul class="ml-9 mt-2 space-y-1">
-                    <li>
-                      <a href="#" class="menu-dropdown-item-inactive"
+                    <li class="hover:bg-blue-100/50 rounded">
+                      <a
+                        href="LineChart.html"
+                        class="menu-dropdown-item-inactive p-2 block"
                         >Line Chart</a
                       >
                     </li>
-                    <li>
-                      <a href="#" class="menu-dropdown-item-inactive"
+                    <li class="hover:bg-blue-100/50 rounded">
+                      <a
+                        href="BarChart.html"
+                        class="menu-dropdown-item-inactive p-2 block"
                         >Bar Chart</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li>
+                <button
+                  onclick="toggleSubmenu('ui')"
+                  class="menu-item-inactive w-full flex items-center justify-between px-3 py-2 rounded"
+                >
+                  <span class="flex items-center gap-3">
+                    <i class="ri-shapes-line"></i>
+                    <span>UI Elements</span>
+                  </span>
+                  <span><i class="ri-arrow-right-s-line"></i></span>
+                </button>
+                <div
+                  id="submenu-ui"
+                  class="overflow-hidden transition-all duration-300 max-h-0"
+                >
+                  <ul class="ml-9 mt-2 space-y-1">
+                    <li class="hover:bg-blue-100/50 rounded">
+                      <a
+                        href="Avatar.html"
+                        class="menu-dropdown-item-inactive p-2 block"
+                        >Avatar</a
+                      >
+                    </li>
+                    <li class="hover:bg-blue-100/50 rounded">
+                      <a
+                        href="Alert.html"
+                        class="menu-dropdown-item-inactive p-2 block"
+                        >Alerts</a
+                      >
+                    </li>
+                    <li class="hover:bg-blue-100/50 rounded">
+                      <a
+                        href="Badge.html"
+                        class="menu-dropdown-item-inactive p-2 block"
+                        >Badge</a
+                      >
+                    </li>
+                    <li class="hover:bg-blue-100/50 rounded">
+                      <a
+                        href="Buttons.html"
+                        class="menu-dropdown-item-inactive p-2 block"
+                        >Buttons</a
                       >
                     </li>
                   </ul>
@@ -206,15 +261,17 @@
                   class="overflow-hidden transition-all duration-300 max-h-0"
                 >
                   <ul class="ml-9 mt-2 space-y-1">
-                    <li>
-                      <a href="index.html" class="menu-dropdown-item-inactive"
+                    <li class="hover:bg-blue-100/50 rounded">
+                      <a
+                        href="index.html"
+                        class="menu-dropdown-item-inactive p-2 block"
                         >Sign In</a
                       >
                     </li>
-                    <li>
+                    <li class="hover:bg-blue-100/50 rounded">
                       <a
                         href="SignUpLight.html"
-                        class="menu-dropdown-item-inactive"
+                        class="menu-dropdown-item-inactive p-2 block"
                         >Sign Up</a
                       >
                     </li>
@@ -461,90 +518,89 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
               <!-- Monthly Sales -->
               <div
-              class="bg-white rounded-xl p-6 overflow-auto shadow-sm border"
-            >
-              <div class="w-full mx-auto">
-                <h2 class="text-lg font-semibold text-gray-800 mb-4">
-                  Monthly Sales
-                </h2>
-                <div class="grid grid-cols-12 items-end  w-full h-40">
-                  <!-- Fake bar chart using Tailwind width & height -->
-                  <div
-                    class="flex  flex-col items-center text-xs md:text-sm text-gray-500"
-                  >
-                    <div class="p-2 bg-blue-500 rounded-t h-16"></div>
-                    <span>Jan</span>
-                  </div>
-                  <div
-                    class="flex flex-col items-center text-xs md:text-sm text-gray-500"
-                  >
-                    <div class="p-2 bg-blue-500 rounded-t h-32"></div>
-                    <span>Feb</span>
-                  </div>
-                  <div
-                    class="flex flex-col items-center text-xs md:text-sm text-gray-500"
-                  >
-                    <div class="p-2 bg-blue-500 rounded-t h-20"></div>
-                    <span>Mar</span>
-                  </div>
-                  <div
-                    class="flex flex-col items-center text-xs md:text-sm text-gray-500"
-                  >
-                    <div class="p-2 bg-blue-500 rounded-t h-28"></div>
-                    <span>Apr</span>
-                  </div>
-                  <div
-                    class="flex flex-col items-center text-xs md:text-sm text-gray-500"
-                  >
-                    <div class="p-2 bg-blue-500 rounded-t h-16"></div>
-                    <span>May</span>
-                  </div>
-                  <div
-                    class="flex flex-col items-center text-xs md:text-sm text-gray-500"
-                  >
-                    <div class="p-2 bg-blue-500 rounded-t h-16"></div>
-                    <span>Jun</span>
-                  </div>
-                  <div
-                    class="flex flex-col items-center text-xs md:text-sm text-gray-500"
-                  >
-                    <div class="p-2 bg-blue-500 rounded-t h-28"></div>
-                    <span>Jul</span>
-                  </div>
-                  <div
-                    class="flex flex-col items-center text-xs md:text-sm text-gray-500"
-                  >
-                    <div class="p-2 bg-blue-500 rounded-t h-10"></div>
-                    <span>Aug</span>
-                  </div>
-                  <div
-                    class="flex flex-col items-center text-xs md:text-sm text-gray-500"
-                  >
-                    <div class="p-2 bg-blue-500 rounded-t h-20"></div>
-                    <span>Sep</span>
-                  </div>
-                  <div
-                    class="flex flex-col items-center text-xs md:text-sm text-gray-500"
-                  >
-                    <div class="p-2 bg-blue-500 rounded-t h-36"></div>
-                    <span>Oct</span>
-                  </div>
-                  <div
-                    class="flex flex-col items-center text-xs md:text-sm text-gray-500"
-                  >
-                    <div class="p-2 bg-blue-500 rounded-t h-28"></div>
-                    <span>Nov</span>
-                  </div>
-                  <div
-                    class="flex flex-col items-center text-xs md:text-sm text-gray-500"
-                  >
-                    <div class="p-2 bg-blue-500 rounded-t h-12"></div>
-                    <span>Dec</span>
+                class="bg-white rounded-xl p-6 overflow-auto shadow-sm border"
+              >
+                <div class="w-full mx-auto">
+                  <h2 class="text-lg font-semibold text-gray-800 mb-4">
+                    Monthly Sales
+                  </h2>
+                  <div class="grid grid-cols-12 items-end w-full h-40">
+                    <!-- Fake bar chart using Tailwind width & height -->
+                    <div
+                      class="flex flex-col items-center text-xs md:text-sm text-gray-500"
+                    >
+                      <div class="p-2 bg-blue-500 rounded-t h-16"></div>
+                      <span>Jan</span>
+                    </div>
+                    <div
+                      class="flex flex-col items-center text-xs md:text-sm text-gray-500"
+                    >
+                      <div class="p-2 bg-blue-500 rounded-t h-32"></div>
+                      <span>Feb</span>
+                    </div>
+                    <div
+                      class="flex flex-col items-center text-xs md:text-sm text-gray-500"
+                    >
+                      <div class="p-2 bg-blue-500 rounded-t h-20"></div>
+                      <span>Mar</span>
+                    </div>
+                    <div
+                      class="flex flex-col items-center text-xs md:text-sm text-gray-500"
+                    >
+                      <div class="p-2 bg-blue-500 rounded-t h-28"></div>
+                      <span>Apr</span>
+                    </div>
+                    <div
+                      class="flex flex-col items-center text-xs md:text-sm text-gray-500"
+                    >
+                      <div class="p-2 bg-blue-500 rounded-t h-16"></div>
+                      <span>May</span>
+                    </div>
+                    <div
+                      class="flex flex-col items-center text-xs md:text-sm text-gray-500"
+                    >
+                      <div class="p-2 bg-blue-500 rounded-t h-16"></div>
+                      <span>Jun</span>
+                    </div>
+                    <div
+                      class="flex flex-col items-center text-xs md:text-sm text-gray-500"
+                    >
+                      <div class="p-2 bg-blue-500 rounded-t h-28"></div>
+                      <span>Jul</span>
+                    </div>
+                    <div
+                      class="flex flex-col items-center text-xs md:text-sm text-gray-500"
+                    >
+                      <div class="p-2 bg-blue-500 rounded-t h-10"></div>
+                      <span>Aug</span>
+                    </div>
+                    <div
+                      class="flex flex-col items-center text-xs md:text-sm text-gray-500"
+                    >
+                      <div class="p-2 bg-blue-500 rounded-t h-20"></div>
+                      <span>Sep</span>
+                    </div>
+                    <div
+                      class="flex flex-col items-center text-xs md:text-sm text-gray-500"
+                    >
+                      <div class="p-2 bg-blue-500 rounded-t h-36"></div>
+                      <span>Oct</span>
+                    </div>
+                    <div
+                      class="flex flex-col items-center text-xs md:text-sm text-gray-500"
+                    >
+                      <div class="p-2 bg-blue-500 rounded-t h-28"></div>
+                      <span>Nov</span>
+                    </div>
+                    <div
+                      class="flex flex-col items-center text-xs md:text-sm text-gray-500"
+                    >
+                      <div class="p-2 bg-blue-500 rounded-t h-12"></div>
+                      <span>Dec</span>
+                    </div>
                   </div>
                 </div>
               </div>
-              </div>
-             
             </div>
           </div>
         </div>

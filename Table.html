@@ -15,13 +15,13 @@
   </head>
   <body>
     <div class="min-h-screen flex">
-      <div id="aside" class="hidden lg:block w-64">
+      <div id="aside" class="hidden lg:block w-64 h-screen">
         <aside
           id="sidebar"
-          class="h-screen bg-white border-r border-gray-200 overflow-y-auto"
+          class="h-screen bg-white border-r border-gray-200 overflow-y-auto pb-8"
         >
           <div class="p-5">
-            <a href="/Dashboard.html">
+            <a href="Dashboard.html">
               <img
                 src="https://vivacombd.com/vivacom/assets/media/viva_logo.png"
                 width="150"
@@ -37,7 +37,7 @@
                   onclick="toggleSubmenu('dashboard')"
                   class="menu-item-inactive w-full flex items-center justify-between px-3 py-2 rounded"
                 >
-                  <a href="/Dashboard.html">
+                  <a href="Dashboard.html">
                     <span class="flex items-center gap-3">
                       <i class="ri-dashboard-line"></i>
                       <span>Dashboard</span>
@@ -54,7 +54,7 @@
 
               <li>
                 <a
-                  href="#"
+                  href="Calender.html"
                   class="menu-item-inactive flex items-center gap-3 px-3 py-2 rounded"
                   ><i class="ri-calendar-line"></i><span>Calendar</span></a
                 >
@@ -62,7 +62,7 @@
 
               <li>
                 <a
-                  href="/UserProfile.html"
+                  href="UserProfile.html"
                   class="menu-item-inactive flex items-center gap-3 px-3 py-2 rounded"
                   ><i class="ri-user-line"></i><span>User Profile</span></a
                 >
@@ -84,8 +84,10 @@
                   class="overflow-hidden transition-all duration-300 max-h-0"
                 >
                   <ul class="ml-9 mt-2 space-y-1">
-                    <li>
-                      <a href="/form.html" class="menu-dropdown-item-inactive"
+                    <li class="hover:bg-blue-100/50 rounded">
+                      <a
+                        href="Form.html"
+                        class="menu-dropdown-item-inactive p-2 block"
                         >Form Elements</a
                       >
                     </li>
@@ -109,9 +111,52 @@
                   class="overflow-hidden transition-all duration-300 max-h-0"
                 >
                   <ul class="ml-9 mt-2 space-y-1">
-                    <li>
-                      <a href="/Table.html" class="menu-dropdown-item-inactive"
+                    <li class="hover:bg-blue-100/50 rounded">
+                      <a
+                        href="Table.html"
+                        class="menu-dropdown-item-inactive p-2 block"
                         >Basic Table</a
+                      >
+                    </li>
+                    <li class="hover:bg-blue-100/50 rounded">
+                      <a
+                        href="DataTable.html"
+                        class="menu-dropdown-item-inactive p-2 block"
+                        >Data Table</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <!-- pages menu item  -->
+              <li>
+                <button
+                  onclick="toggleSubmenu('page')"
+                  class="menu-item-inactive w-full flex items-center justify-between px-3 py-2 rounded"
+                >
+                  <span class="flex items-center gap-3">
+                    <i class="ri-file-copy-line"></i>
+                    <span>Pages</span>
+                  </span>
+                  <span><i class="ri-arrow-right-s-line"></i></span>
+                </button>
+                <div
+                  id="submenu-page"
+                  class="overflow-hidden transition-all duration-300 max-h-0"
+                >
+                  <ul class="ml-9 mt-2 space-y-1">
+                    <li class="hover:bg-blue-100/50 rounded">
+                      <a
+                        href="ErrorPage.html"
+                        class="menu-dropdown-item-inactive p-2 block"
+                        >Error Page</a
+                      >
+                    </li>
+                    <li class="hover:bg-blue-100/50 rounded">
+                      <a
+                        href="BlankPage.html"
+                        class="menu-dropdown-item-inactive p-2 block"
+                        >Blank Page</a
                       >
                     </li>
                   </ul>
@@ -137,14 +182,65 @@
                   class="overflow-hidden transition-all duration-300 max-h-0"
                 >
                   <ul class="ml-9 mt-2 space-y-1">
-                    <li>
-                      <a href="#" class="menu-dropdown-item-inactive"
+                    <li class="hover:bg-blue-100/50 rounded">
+                      <a
+                        href="LineChart.html"
+                        class="menu-dropdown-item-inactive p-2 block"
                         >Line Chart</a
                       >
                     </li>
-                    <li>
-                      <a href="#" class="menu-dropdown-item-inactive"
+                    <li class="hover:bg-blue-100/50 rounded">
+                      <a
+                        href="BarChart.html"
+                        class="menu-dropdown-item-inactive p-2 block"
                         >Bar Chart</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li>
+                <button
+                  onclick="toggleSubmenu('ui')"
+                  class="menu-item-inactive w-full flex items-center justify-between px-3 py-2 rounded"
+                >
+                  <span class="flex items-center gap-3">
+                    <i class="ri-shapes-line"></i>
+                    <span>UI Elements</span>
+                  </span>
+                  <span><i class="ri-arrow-right-s-line"></i></span>
+                </button>
+                <div
+                  id="submenu-ui"
+                  class="overflow-hidden transition-all duration-300 max-h-0"
+                >
+                  <ul class="ml-9 mt-2 space-y-1">
+                    <li class="hover:bg-blue-100/50 rounded">
+                      <a
+                        href="Avatar.html"
+                        class="menu-dropdown-item-inactive p-2 block"
+                        >Avatar</a
+                      >
+                    </li>
+                    <li class="hover:bg-blue-100/50 rounded">
+                      <a
+                        href="Alert.html"
+                        class="menu-dropdown-item-inactive p-2 block"
+                        >Alerts</a
+                      >
+                    </li>
+                    <li class="hover:bg-blue-100/50 rounded">
+                      <a
+                        href="Badge.html"
+                        class="menu-dropdown-item-inactive p-2 block"
+                        >Badge</a
+                      >
+                    </li>
+                    <li class="hover:bg-blue-100/50 rounded">
+                      <a
+                        href="Buttons.html"
+                        class="menu-dropdown-item-inactive p-2 block"
+                        >Buttons</a
                       >
                     </li>
                   </ul>
@@ -167,15 +263,17 @@
                   class="overflow-hidden transition-all duration-300 max-h-0"
                 >
                   <ul class="ml-9 mt-2 space-y-1">
-                    <li>
-                      <a href="/index.html" class="menu-dropdown-item-inactive"
+                    <li class="hover:bg-blue-100/50 rounded">
+                      <a
+                        href="index.html"
+                        class="menu-dropdown-item-inactive p-2 block"
                         >Sign In</a
                       >
                     </li>
-                    <li>
+                    <li class="hover:bg-blue-100/50 rounded">
                       <a
-                        href="/SignUpLight.html"
-                        class="menu-dropdown-item-inactive"
+                        href="SignUpLight.html"
+                        class="menu-dropdown-item-inactive p-2 block"
                         >Sign Up</a
                       >
                     </li>
