@@ -18,7 +18,7 @@
       <div id="aside" class="hidden lg:block w-64 h-screen">
         <aside
           id="sidebar"
-          class="h-screen bg-white border-r border-gray-200 overflow-y-auto pb-8"
+          class="h-screen bg-white border-r border-gray-200 overflow-y-auto pb-8 fixed w-64"
         >
           <div class="p-5">
             <a href="Dashboard.html">
@@ -427,163 +427,165 @@
             }
           });
         </script>
-
-        <div class="flex-1 flex flex-col">
-          <div class="px-4 py-6">
-            <div
-              class="overflow-hidden rounded-xl border border-gray-200 bg-white"
-            >
-              <div class="max-w-full overflow-x-auto">
-                <table class="min-w-full">
-                  <thead class="border-b border-gray-100">
-                    <tr>
-                      <th
-                        class="px-5 py-3 text-start text-xs font-medium text-gray-500"
-                      >
-                        User
-                      </th>
-                      <th
-                        class="px-5 py-3 text-start text-xs font-medium text-gray-500"
-                      >
-                        Project Name
-                      </th>
-                      <th
-                        class="px-5 py-3 text-start text-xs font-medium text-gray-500"
-                      >
-                        Team
-                      </th>
-                      <th
-                        class="px-5 py-3 text-start text-xs font-medium text-gray-500"
-                      >
-                        Status
-                      </th>
-                      <th
-                        class="px-5 py-3 text-start text-xs font-medium text-gray-500"
-                      >
-                        Budget
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody
-                    id="tableBody"
-                    class="divide-y divide-gray-100"
-                  ></tbody>
-                </table>
+        <!-- MAIN  -->
+        <div>
+          <!-- table 1  -->
+          <div class="flex-1 flex flex-col">
+            <div class="px-4 py-6">
+              <div
+                class="overflow-hidden rounded-xl border border-gray-200 bg-white"
+              >
+                <div class="max-w-full overflow-x-auto">
+                  <table class="min-w-full">
+                    <thead class="border-b border-gray-100">
+                      <tr>
+                        <th
+                          class="px-5 py-3 text-start text-xs font-medium text-gray-500"
+                        >
+                          User
+                        </th>
+                        <th
+                          class="px-5 py-3 text-start text-xs font-medium text-gray-500"
+                        >
+                          Project Name
+                        </th>
+                        <th
+                          class="px-5 py-3 text-start text-xs font-medium text-gray-500"
+                        >
+                          Team
+                        </th>
+                        <th
+                          class="px-5 py-3 text-start text-xs font-medium text-gray-500"
+                        >
+                          Status
+                        </th>
+                        <th
+                          class="px-5 py-3 text-start text-xs font-medium text-gray-500"
+                        >
+                          Budget
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody
+                      id="tableBody"
+                      class="divide-y divide-gray-100"
+                    ></tbody>
+                  </table>
+                </div>
               </div>
-            </div>
 
-            <script>
-              const tableData = [
-                {
-                  id: 1,
-                  user: {
-                    image: "https://i.ibb.co.com/WvvqDyH2/islamul-net2.jpg",
-                    name: "Lindsey Curtis",
-                    role: "Web Designer",
+              <script>
+                const tableData = [
+                  {
+                    id: 1,
+                    user: {
+                      image: "https://i.ibb.co.com/WvvqDyH2/islamul-net2.jpg",
+                      name: "Lindsey Curtis",
+                      role: "Web Designer",
+                    },
+                    projectName: "Agency Website",
+                    team: {
+                      images: [
+                        "https://vivacombd.com/storage/team/team_1741846662_67d278862821e.jpg",
+                        "https://vivacombd.com/storage/team/team_1741846518_67d277f695eba.jpg",
+                        "https://vivacombd.com/storage/team/team_1741846600_67d278486c961.jpg",
+                      ],
+                    },
+                    status: "Active",
+                    budget: "3.9K",
                   },
-                  projectName: "Agency Website",
-                  team: {
-                    images: [
-                      "https://vivacombd.com/storage/team/team_1741846662_67d278862821e.jpg",
-                      "https://vivacombd.com/storage/team/team_1741846518_67d277f695eba.jpg",
-                      "https://vivacombd.com/storage/team/team_1741846600_67d278486c961.jpg",
-                    ],
+                  {
+                    id: 2,
+                    user: {
+                      image:
+                        "https://vivacombd.com/storage/team/team_1741846437_67d277a595136.jpg",
+                      name: "Kaiya George",
+                      role: "Project Manager",
+                    },
+                    projectName: "Technology",
+                    team: {
+                      images: [
+                        "https://i.ibb.co.com/WvvqDyH2/islamul-net2.jpg",
+                        "https://vivacombd.com/storage/team/team_1741846706_67d278b26a853.jpg",
+                      ],
+                    },
+                    status: "Pending",
+                    budget: "24.9K",
                   },
-                  status: "Active",
-                  budget: "3.9K",
-                },
-                {
-                  id: 2,
-                  user: {
-                    image:
-                      "https://vivacombd.com/storage/team/team_1741846437_67d277a595136.jpg",
-                    name: "Kaiya George",
-                    role: "Project Manager",
+                  {
+                    id: 3,
+                    user: {
+                      image:
+                        "https://vivacombd.com/storage/team/team_1741846706_67d278b26a853.jpg",
+                      name: "Zain Geidt",
+                      role: "Content Writing",
+                    },
+                    projectName: "Blog Writing",
+                    team: {
+                      images: [
+                        "https://vivacombd.com/storage/team/team_1741846600_67d278486c961.jpg",
+                      ],
+                    },
+                    status: "Active",
+                    budget: "12.7K",
                   },
-                  projectName: "Technology",
-                  team: {
-                    images: [
-                      "https://i.ibb.co.com/WvvqDyH2/islamul-net2.jpg",
-                      "https://vivacombd.com/storage/team/team_1741846706_67d278b26a853.jpg",
-                    ],
+                  {
+                    id: 4,
+                    user: {
+                      image:
+                        "https://vivacombd.com/storage/team/team_1741846518_67d277f695eba.jpg",
+                      name: "Abram Schleifer",
+                      role: "Digital Marketer",
+                    },
+                    projectName: "Social Media",
+                    team: {
+                      images: [
+                        "https://vivacombd.com/storage/team/team_1741846662_67d278862821e.jpg",
+                        "https://vivacombd.com/storage/team/team_1741846518_67d277f695eba.jpg",
+                        "https://vivacombd.com/storage/team/team_1741846600_67d278486c961.jpg",
+                      ],
+                    },
+                    status: "Cancel",
+                    budget: "2.8K",
                   },
-                  status: "Pending",
-                  budget: "24.9K",
-                },
-                {
-                  id: 3,
-                  user: {
-                    image:
-                      "https://vivacombd.com/storage/team/team_1741846706_67d278b26a853.jpg",
-                    name: "Zain Geidt",
-                    role: "Content Writing",
+                  {
+                    id: 5,
+                    user: {
+                      image:
+                        "https://vivacombd.com/storage/team/team_1741846662_67d278862821e.jpg",
+                      name: "Carla George",
+                      role: "Front-end Developer",
+                    },
+                    projectName: "Website",
+                    team: {
+                      images: [
+                        "https://vivacombd.com/storage/team/team_1741846662_67d278862821e.jpg",
+                        "https://vivacombd.com/storage/team/team_1741846518_67d277f695eba.jpg",
+                        "https://vivacombd.com/storage/team/team_1741846600_67d278486c961.jpg",
+                      ],
+                    },
+                    status: "Active",
+                    budget: "4.5K",
                   },
-                  projectName: "Blog Writing",
-                  team: {
-                    images: [
-                      "https://vivacombd.com/storage/team/team_1741846600_67d278486c961.jpg",
-                    ],
-                  },
-                  status: "Active",
-                  budget: "12.7K",
-                },
-                {
-                  id: 4,
-                  user: {
-                    image:
-                      "https://vivacombd.com/storage/team/team_1741846518_67d277f695eba.jpg",
-                    name: "Abram Schleifer",
-                    role: "Digital Marketer",
-                  },
-                  projectName: "Social Media",
-                  team: {
-                    images: [
-                      "https://vivacombd.com/storage/team/team_1741846662_67d278862821e.jpg",
-                      "https://vivacombd.com/storage/team/team_1741846518_67d277f695eba.jpg",
-                      "https://vivacombd.com/storage/team/team_1741846600_67d278486c961.jpg",
-                    ],
-                  },
-                  status: "Cancel",
-                  budget: "2.8K",
-                },
-                {
-                  id: 5,
-                  user: {
-                    image:
-                      "https://vivacombd.com/storage/team/team_1741846662_67d278862821e.jpg",
-                    name: "Carla George",
-                    role: "Front-end Developer",
-                  },
-                  projectName: "Website",
-                  team: {
-                    images: [
-                      "https://vivacombd.com/storage/team/team_1741846662_67d278862821e.jpg",
-                      "https://vivacombd.com/storage/team/team_1741846518_67d277f695eba.jpg",
-                      "https://vivacombd.com/storage/team/team_1741846600_67d278486c961.jpg",
-                    ],
-                  },
-                  status: "Active",
-                  budget: "4.5K",
-                },
-              ];
+                ];
 
-              const getBadgeColor = (status) => {
-                switch (status) {
-                  case "Active":
-                    return "bg-green-100 text-green-600";
-                  case "Pending":
-                    return "bg-yellow-100 text-yellow-600";
-                  default:
-                    return "bg-red-100 text-red-600";
-                }
-              };
+                const getBadgeColor = (status) => {
+                  switch (status) {
+                    case "Active":
+                      return "bg-green-100 text-green-600";
+                    case "Pending":
+                      return "bg-yellow-100 text-yellow-600";
+                    default:
+                      return "bg-red-100 text-red-600";
+                  }
+                };
 
-              const tableBody = document.getElementById("tableBody");
+                const tableBody = document.getElementById("tableBody");
 
-              tableData.forEach((order) => {
-                const row = document.createElement("tr");
+                tableData.forEach((order) => {
+                  const row = document.createElement("tr");
 
-                row.innerHTML = `
+                  row.innerHTML = `
             <td class="px-5 py-5 text-start">
               <div class="flex items-center gap-3">
                 <div class="size-12 flex justify-center items-center overflow-hidden rounded-full">
@@ -627,124 +629,515 @@
             <td class="px-4 py-3 text-sm text-gray-500">${order.budget}</td>
           `;
 
-                tableBody.appendChild(row);
+                  tableBody.appendChild(row);
+                });
+              </script>
+            </div>
+            <!-- data table  -->
+            <div class="px-4 py-6">
+              <div class="overflow-x-auto">
+                <table
+                  id="default-table"
+                  class="min-w-full divide-y divide-gray-200 text-sm text-left text-gray-500 shadow bg-white border rounded"
+                >
+                  <thead class="bg-gray-50 text-xs uppercase text-gray-700">
+                    <tr>
+                      <th scope="col" class="px-6 py-3">
+                        <span class="flex items-center">
+                          Name
+                          <i></i>
+                        </span>
+                      </th>
+                      <th scope="col" class="px-6 py-3">
+                        <span class="flex items-center">
+                          Release Date
+                          <svg
+                            class="w-4 h-4 ms-1"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="m8 15 4 4 4-4m0-6-4-4-4 4"
+                            />
+                          </svg>
+                        </span>
+                      </th>
+                      <th scope="col" class="px-6 py-3">
+                        <span class="flex items-center">
+                          NPM Downloads
+                          <svg
+                            class="w-4 h-4 ms-1"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="m8 15 4 4 4-4m0-6-4-4-4 4"
+                            />
+                          </svg>
+                        </span>
+                      </th>
+                      <th scope="col" class="px-6 py-3">
+                        <span class="flex items-center">
+                          Growth
+                          <svg
+                            class="w-4 h-4 ms-1"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="m8 15 4 4 4-4m0-6-4-4-4 4"
+                            />
+                          </svg>
+                        </span>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody
+                    class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700"
+                  >
+                    <tr class="hover:bg-gray-50 dark:hover:bg-gray-700">
+                      <td
+                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                      >
+                        Flowbite
+                      </td>
+                      <td class="px-6 py-4">2021/25/09</td>
+                      <td class="px-6 py-4">269000</td>
+                      <td class="px-6 py-4">49%</td>
+                    </tr>
+                    <tr class="hover:bg-gray-50 dark:hover:bg-gray-700">
+                      <td
+                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                      >
+                        React
+                      </td>
+                      <td class="px-6 py-4">2013/24/05</td>
+                      <td class="px-6 py-4">4500000</td>
+                      <td class="px-6 py-4">24%</td>
+                    </tr>
+                    <!-- Repeat for all other rows -->
+                    <tr class="hover:bg-gray-50 dark:hover:bg-gray-700">
+                      <td
+                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                      >
+                        Solid
+                      </td>
+                      <td class="px-6 py-4">2021/05/07</td>
+                      <td class="px-6 py-4">250000</td>
+                      <td class="px-6 py-4">80%</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <!-- table 2  -->
+          <div class="mx-4 my-6">
+            <div
+              class="rounded-2xl border border-gray-200 bg-white :border-gray-800 :bg-white/[0.03]"
+            >
+              <div class="px-5 py-4 sm:px-6 sm:py-5">
+                <h3 class="text-base font-medium text-gray-800 :text-white/90">
+                  Basic Table 2
+                </h3>
+              </div>
+              <div class="border-t border-gray-100 p-5 :border-gray-800 sm:p-6">
+                <!-- Table Four -->
+                <div
+                  class="overflow-hidden rounded-2xl border border-gray-200 bg-white pt-4 :border-gray-800 :bg-white/[0.03]"
+                >
+                  <div
+                    class="flex flex-col gap-5 px-6 mb-4 sm:flex-row sm:items-center sm:justify-between"
+                  >
+                    <div>
+                      <h3
+                        class="text-lg font-semibold text-gray-800 :text-white/90"
+                      >
+                        Recent Orders
+                      </h3>
+                    </div>
+
+                    <div
+                      class="flex flex-col gap-3 sm:flex-row sm:items-center"
+                    >
+                      <form>
+                        <div class="relative">
+                          <span
+                            class="absolute -translate-y-1/2 pointer-events-none top-1/2 left-4"
+                          >
+                            <i class="ri-search-line text-gray-500"></i>
+                            <!-- Using Remix Icon for search -->
+                          </span>
+                          <input
+                            type="text"
+                            placeholder="Search..."
+                            class="h-10 w-full rounded-lg border border-gray-300 bg-transparent py-2.5 pr-4 pl-[42px] text-sm text-gray-800 placeholder:text-gray-400 focus:border-brand-300 focus:ring-brand-500/10 focus:ring-3 focus:outline-hidden xl:w-[300px]"
+                          />
+                        </div>
+                      </form>
+                      <div>
+                        <button
+                          id="fillter-btn"
+                          class="text-gray-700 inline-flex h-10 items-center gap-2 rounded-lg border border-gray-300 bg-white px-4 py-2.5 font-medium hover:bg-gray-50 hover:text-gray-800"
+                        >
+                          <i class="ri-filter-line text-gray-800"></i>
+                          <!-- Remix Icon for filter -->
+                          Filter
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Filter Input Panel -->
+                  <div
+                    id="filterPanel"
+                    class="hidden grid grid-cols-1 gap-4 mt-4 sm:grid-cols-2 md:grid-cols-3 my-6 mx-4"
+                  >
+                    <input
+                      type="text"
+                      placeholder="Deal ID"
+                      class="px-4 py-2 border border-gray-300 rounded-lg text-sm"
+                    />
+                    <input
+                      type="date"
+                      placeholder="Close Date"
+                      class="px-4 py-2 border border-gray-300 rounded-lg text-sm"
+                    />
+                    <input
+                      type="text"
+                      placeholder="Status"
+                      class="px-4 py-2 border border-gray-300 rounded-lg text-sm"
+                    />
+                    <input
+                      type="text"
+                      placeholder="Product"
+                      class="px-4 py-2 border border-gray-300 rounded-lg text-sm"
+                    />
+                    <input
+                      type="text"
+                      placeholder="Service"
+                      class="px-4 py-2 border border-gray-300 rounded-lg text-sm"
+                    />
+                  </div>
+
+                  <div class="max-w-full overflow-x-auto custom-scrollbar">
+                    <table class="min-w-full">
+                      <!-- table header start -->
+                      <thead class="border-y border-gray-100 bg-gray-50">
+                        <tr>
+                          <th class="px-6 py-3 whitespace-nowrap">
+                            <div class="flex items-center">
+                              <div class="flex items-center gap-3">
+                                <div
+                                  class="flex h-5 w-5 cursor-pointer items-center justify-center rounded-md border border-gray-300 bg-white"
+                                >
+                                  <i
+                                    class="ri-check-line text-white text-xs opacity-0"
+                                  ></i>
+                                </div>
+                                <div>
+                                  <span
+                                    class="block font-medium text-gray-500 text-xs"
+                                  >
+                                    Deal ID
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                          </th>
+                          <th class="px-6 py-3 whitespace-nowrap">
+                            <div class="flex items-center">
+                              <p class="font-medium text-gray-500 text-xs">
+                                Customer
+                              </p>
+                            </div>
+                          </th>
+                          <th class="px-6 py-3 whitespace-nowrap">
+                            <div class="flex items-center">
+                              <p class="font-medium text-gray-500 text-xs">
+                                Product/Service
+                              </p>
+                            </div>
+                          </th>
+                          <th class="px-6 py-3 whitespace-nowrap">
+                            <div class="flex items-center">
+                              <p class="font-medium text-gray-500 text-xs">
+                                Deal Value
+                              </p>
+                            </div>
+                          </th>
+                          <th class="px-6 py-3 whitespace-nowrap">
+                            <div class="flex items-center">
+                              <p class="font-medium text-gray-500 text-xs">
+                                Close Date
+                              </p>
+                            </div>
+                          </th>
+                          <th class="px-6 py-3 whitespace-nowrap">
+                            <div class="flex items-center">
+                              <p class="font-medium text-gray-500 text-xs">
+                                Status
+                              </p>
+                            </div>
+                          </th>
+                          <th class="px-6 py-3 whitespace-nowrap">
+                            <div class="flex items-center justify-center">
+                              <p class="font-medium text-gray-500 text-xs">
+                                Action
+                              </p>
+                            </div>
+                          </th>
+                        </tr>
+                      </thead>
+
+                      <!-- table header end -->
+
+                      <!-- table body start -->
+                      <tbody class="divide-y divide-gray-100 :divide-gray-800">
+                        <!-- row  -->
+                        <tr>
+                          <td class="px-6 py-3 whitespace-nowrap">
+                            <div class="flex items-center">
+                              <div class="flex items-center gap-3">
+                                <div
+                                  class="flex h-5 w-5 cursor-pointer items-center justify-center rounded-md border border-gray-300 bg-white"
+                                >
+                                  <i
+                                    class="ri-check-line text-white text-xs opacity-0"
+                                  ></i>
+                                </div>
+                                <div>
+                                  <span
+                                    class="block font-medium text-gray-700 text-sm"
+                                  >
+                                    DE124321
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                          <td class="px-6 py-3 whitespace-nowrap">
+                            <div class="flex items-center gap-3">
+                              <div
+                                class="flex items-center justify-center w-10 h-10 rounded-full bg-brand-100"
+                              >
+                                <span
+                                  class="text-xs font-semibold text-brand-500"
+                                  >JD</span
+                                >
+                              </div>
+                              <div>
+                                <span
+                                  class="block mb-0.5 font-medium text-gray-700 text-sm"
+                                  >John Doe</span
+                                >
+                                <span class="text-gray-500 text-sm"
+                                  >johndeo@gmail.com</span
+                                >
+                              </div>
+                            </div>
+                          </td>
+                          <td class="px-6 py-3 whitespace-nowrap">
+                            <p class="text-gray-700 text-sm">
+                              Software License
+                            </p>
+                          </td>
+                          <td class="px-6 py-3 whitespace-nowrap">
+                            <p class="text-gray-700 text-sm">$18,50.34</p>
+                          </td>
+                          <td class="px-6 py-3 whitespace-nowrap">
+                            <p class="text-gray-700 text-sm">2024-06-15</p>
+                          </td>
+                          <td class="px-6 py-3 whitespace-nowrap">
+                            <p
+                              class="bg-green-50 text-green-600 text-xs text-center rounded-full px-2 py-0.5 font-medium"
+                            >
+                              Complete
+                            </p>
+                          </td>
+                          <td class="px-6 py-3 whitespace-nowrap">
+                            <div class="flex items-center justify-center">
+                              <i
+                                class="ri-delete-bin-line text-gray-700 hover:text-error-500 text-lg cursor-pointer"
+                              ></i>
+                            </div>
+                          </td>
+                        </tr>
+                        <!-- row  -->
+                        <tr>
+                          <td class="px-6 py-3 whitespace-nowrap">
+                            <div class="flex items-center">
+                              <div class="flex items-center gap-3">
+                                <div
+                                  class="flex h-5 w-5 cursor-pointer items-center justify-center rounded-md border border-gray-300 bg-white"
+                                >
+                                  <i
+                                    class="ri-check-line text-white text-xs opacity-0"
+                                  ></i>
+                                </div>
+                                <div>
+                                  <span
+                                    class="block font-medium text-gray-700 text-sm"
+                                  >
+                                    DE124321
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                          <td class="px-6 py-3 whitespace-nowrap">
+                            <div class="flex items-center gap-3">
+                              <div
+                                class="flex items-center justify-center w-10 h-10 rounded-full bg-brand-100"
+                              >
+                                <span
+                                  class="text-xs font-semibold text-brand-500"
+                                  >JD</span
+                                >
+                              </div>
+                              <div>
+                                <span
+                                  class="block mb-0.5 font-medium text-gray-700 text-sm"
+                                  >John Doe</span
+                                >
+                                <span class="text-gray-500 text-sm"
+                                  >johndeo@gmail.com</span
+                                >
+                              </div>
+                            </div>
+                          </td>
+                          <td class="px-6 py-3 whitespace-nowrap">
+                            <p class="text-gray-700 text-sm">
+                              Software License
+                            </p>
+                          </td>
+                          <td class="px-6 py-3 whitespace-nowrap">
+                            <p class="text-gray-700 text-sm">$18,50.34</p>
+                          </td>
+                          <td class="px-6 py-3 whitespace-nowrap">
+                            <p class="text-gray-700 text-sm">2024-06-15</p>
+                          </td>
+                          <td class="px-6 py-3 whitespace-nowrap">
+                            <p
+                              class="bg-yellow-50 text-yellow-600 text-xs text-center rounded-full px-2 py-0.5 font-medium"
+                            >
+                              pending
+                            </p>
+                          </td>
+                          <td class="px-6 py-3 whitespace-nowrap">
+                            <div class="flex items-center justify-center">
+                              <i
+                                class="ri-delete-bin-line text-gray-700 hover:text-error-500 text-lg cursor-pointer"
+                              ></i>
+                            </div>
+                          </td>
+                        </tr>
+                        <!-- row  -->
+                        <tr>
+                          <td class="px-6 py-3 whitespace-nowrap">
+                            <div class="flex items-center">
+                              <div class="flex items-center gap-3">
+                                <div
+                                  class="flex h-5 w-5 cursor-pointer items-center justify-center rounded-md border border-gray-300 bg-white"
+                                >
+                                  <i
+                                    class="ri-check-line text-white text-xs opacity-0"
+                                  ></i>
+                                </div>
+                                <div>
+                                  <span
+                                    class="block font-medium text-gray-700 text-sm"
+                                  >
+                                    DE124321
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                          <td class="px-6 py-3 whitespace-nowrap">
+                            <div class="flex items-center gap-3">
+                              <div
+                                class="flex items-center justify-center w-10 h-10 rounded-full bg-brand-100"
+                              >
+                                <span
+                                  class="text-xs font-semibold text-brand-500"
+                                  >JD</span
+                                >
+                              </div>
+                              <div>
+                                <span
+                                  class="block mb-0.5 font-medium text-gray-700 text-sm"
+                                  >John Doe</span
+                                >
+                                <span class="text-gray-500 text-sm"
+                                  >johndeo@gmail.com</span
+                                >
+                              </div>
+                            </div>
+                          </td>
+                          <td class="px-6 py-3 whitespace-nowrap">
+                            <p class="text-gray-700 text-sm">
+                              Software License
+                            </p>
+                          </td>
+                          <td class="px-6 py-3 whitespace-nowrap">
+                            <p class="text-gray-700 text-sm">$18,50.34</p>
+                          </td>
+                          <td class="px-6 py-3 whitespace-nowrap">
+                            <p class="text-gray-700 text-sm">2024-06-15</p>
+                          </td>
+                          <td class="px-6 py-3 whitespace-nowrap">
+                            <p
+                              class="bg-red-50 text-red-600 text-xs text-center rounded-full px-2 py-0.5 font-medium"
+                            >
+                              Cancel
+                            </p>
+                          </td>
+                          <td class="px-6 py-3 whitespace-nowrap">
+                            <div class="flex items-center justify-center">
+                              <i
+                                class="ri-delete-bin-line text-gray-700 hover:text-error-500 text-lg cursor-pointer"
+                              ></i>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                      <!-- table body end -->
+                    </table>
+                  </div>
+                </div>
+                <!-- Table Four -->
+              </div>
+            </div>
+            <script>
+              document.addEventListener("DOMContentLoaded", function () {
+                const filterButton = document.getElementById("fillter-btn");
+                const filterPanel = document.getElementById("filterPanel");
+
+                if (filterButton && filterPanel) {
+                  filterButton.addEventListener("click", function () {
+                    filterPanel.classList.toggle("hidden");
+                  });
+                }
               });
             </script>
-          </div>
-          <!-- data table  -->
-          <div class="px-4 py-6">
-            <div class="overflow-x-auto">
-              <table
-                id="default-table"
-                class="min-w-full divide-y divide-gray-200  text-sm text-left text-gray-500 shadow bg-white border rounded"
-              >
-                <thead
-                  class="bg-gray-50  text-xs uppercase text-gray-700 "
-                >
-                  <tr>
-                    <th scope="col" class="px-6 py-3">
-                      <span class="flex items-center">
-                        Name
-                        <i></i>
-                      </span>
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                      <span class="flex items-center">
-                        Release Date
-                        <svg
-                          class="w-4 h-4 ms-1"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="m8 15 4 4 4-4m0-6-4-4-4 4"
-                          />
-                        </svg>
-                      </span>
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                      <span class="flex items-center">
-                        NPM Downloads
-                        <svg
-                          class="w-4 h-4 ms-1"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="m8 15 4 4 4-4m0-6-4-4-4 4"
-                          />
-                        </svg>
-                      </span>
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                      <span class="flex items-center">
-                        Growth
-                        <svg
-                          class="w-4 h-4 ms-1"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="m8 15 4 4 4-4m0-6-4-4-4 4"
-                          />
-                        </svg>
-                      </span>
-                    </th>
-                  </tr>
-                </thead>
-                <tbody
-                  class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700"
-                >
-                  <tr class="hover:bg-gray-50 dark:hover:bg-gray-700">
-                    <td
-                      class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                    >
-                      Flowbite
-                    </td>
-                    <td class="px-6 py-4">2021/25/09</td>
-                    <td class="px-6 py-4">269000</td>
-                    <td class="px-6 py-4">49%</td>
-                  </tr>
-                  <tr class="hover:bg-gray-50 dark:hover:bg-gray-700">
-                    <td
-                      class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                    >
-                      React
-                    </td>
-                    <td class="px-6 py-4">2013/24/05</td>
-                    <td class="px-6 py-4">4500000</td>
-                    <td class="px-6 py-4">24%</td>
-                  </tr>
-                  <!-- Repeat for all other rows -->
-                  <tr class="hover:bg-gray-50 dark:hover:bg-gray-700">
-                    <td
-                      class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                    >
-                      Solid
-                    </td>
-                    <td class="px-6 py-4">2021/05/07</td>
-                    <td class="px-6 py-4">250000</td>
-                    <td class="px-6 py-4">80%</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
           </div>
         </div>
       </div>
     </div>
+
     <script>
       const aside = document.getElementById("aside");
       const main = document.getElementById("main");

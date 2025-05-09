@@ -16,7 +16,7 @@
       <div id="aside" class="hidden lg:block w-64 h-screen">
         <aside
           id="sidebar"
-          class="h-screen bg-white border-r border-gray-200 overflow-y-auto pb-8"
+          class="h-screen bg-white border-r border-gray-200 overflow-y-auto pb-8 fixed w-64"
         >
           <div class="p-5">
             <a href="Dashboard.html">
@@ -426,50 +426,53 @@
           });
         </script>
 
-        <div class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
-            <div class="w-full max-w-4xl bg-white rounded-xl shadow p-6">
-                <h2 class="text-xl font-bold mb-4 text-center">Bar Chart (Aligned Labels)</h2>
-            
-                <!-- Chart container -->
-                <div class="flex items-end h-64 space-x-4 px-4">
-                  <!-- Bar 1 -->
-                  <div class="flex flex-col items-center flex-1">
-                    <div class="bg-blue-500 w-full rounded-t h-24"></div>
-                    <span class="text-xs mt-2">Jan</span>
-                  </div>
-                  <!-- Bar 2 -->
-                  <div class="flex flex-col items-center flex-1">
-                    <div class="bg-blue-500 w-full rounded-t h-32"></div>
-                    <span class="text-xs mt-2">Feb</span>
-                  </div>
-                  <!-- Bar 3 -->
-                  <div class="flex flex-col items-center flex-1">
-                    <div class="bg-blue-500 w-full rounded-t h-40"></div>
-                    <span class="text-xs mt-2">Mar</span>
-                  </div>
-                  <!-- Bar 4 -->
-                  <div class="flex flex-col items-center flex-1">
-                    <div class="bg-blue-500 w-full rounded-t h-20"></div>
-                    <span class="text-xs mt-2">Apr</span>
-                  </div>
-                  <!-- Bar 5 -->
-                  <div class="flex flex-col items-center flex-1">
-                    <div class="bg-blue-500 w-full rounded-t h-28"></div>
-                    <span class="text-xs mt-2">May</span>
-                  </div>
-                  <!-- Bar 6 -->
-                  <div class="flex flex-col items-center flex-1">
-                    <div class="bg-blue-500 w-full rounded-t h-36"></div>
-                    <span class="text-xs mt-2">Jun</span>
-                  </div>
-                  <!-- Bar 7 -->
-                  <div class="flex flex-col items-center flex-1">
-                    <div class="bg-blue-500 w-full rounded-t h-44"></div>
-                    <span class="text-xs mt-2">Jul</span>
-                  </div>
-                </div>
+        <div
+          class="bg-gray-100 flex items-center justify-center min-h-screen p-4"
+        >
+          <div class="w-full max-w-4xl bg-white rounded-xl shadow p-6">
+            <h2 class="text-xl font-bold mb-4 text-center">
+              Bar Chart (Aligned Labels)
+            </h2>
+
+            <!-- Chart container -->
+            <div class="flex items-end h-64 space-x-4 px-4">
+              <!-- Bar 1 -->
+              <div class="flex flex-col items-center flex-1">
+                <div class="bg-blue-500 w-full rounded-t h-24"></div>
+                <span class="text-xs mt-2">Jan</span>
               </div>
-            
+              <!-- Bar 2 -->
+              <div class="flex flex-col items-center flex-1">
+                <div class="bg-blue-500 w-full rounded-t h-32"></div>
+                <span class="text-xs mt-2">Feb</span>
+              </div>
+              <!-- Bar 3 -->
+              <div class="flex flex-col items-center flex-1">
+                <div class="bg-blue-500 w-full rounded-t h-40"></div>
+                <span class="text-xs mt-2">Mar</span>
+              </div>
+              <!-- Bar 4 -->
+              <div class="flex flex-col items-center flex-1">
+                <div class="bg-blue-500 w-full rounded-t h-20"></div>
+                <span class="text-xs mt-2">Apr</span>
+              </div>
+              <!-- Bar 5 -->
+              <div class="flex flex-col items-center flex-1">
+                <div class="bg-blue-500 w-full rounded-t h-28"></div>
+                <span class="text-xs mt-2">May</span>
+              </div>
+              <!-- Bar 6 -->
+              <div class="flex flex-col items-center flex-1">
+                <div class="bg-blue-500 w-full rounded-t h-36"></div>
+                <span class="text-xs mt-2">Jun</span>
+              </div>
+              <!-- Bar 7 -->
+              <div class="flex flex-col items-center flex-1">
+                <div class="bg-blue-500 w-full rounded-t h-44"></div>
+                <span class="text-xs mt-2">Jul</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

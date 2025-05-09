@@ -16,7 +16,7 @@
       <div id="aside" class="hidden lg:block w-64 h-screen">
         <aside
           id="sidebar"
-          class="h-screen bg-white border-r border-gray-200 overflow-y-auto pb-8"
+          class="h-screen bg-white border-r border-gray-200 overflow-y-auto pb-8 fixed w-64"
         >
           <div class="p-5">
             <a href="Dashboard.html">
@@ -427,9 +427,13 @@
         </script>
 
         <div class="flex-1 flex flex-col">
-          <div class="w-full mx-auto my-12 max-w-3xl bg-white rounded-xl shadow p-6">
-            <h2 class="text-xl font-bold mb-4 text-center">Line Chart (Sample Data)</h2>
-        
+          <div
+            class="w-full mx-auto my-12 max-w-3xl bg-white rounded-xl shadow p-6"
+          >
+            <h2 class="text-xl font-bold mb-4 text-center">
+              Line Chart (Sample Data)
+            </h2>
+
             <div class="relative w-full h-64">
               <!-- X and Y axes -->
               <svg class="absolute top-0 left-0 w-full h-full">
@@ -440,15 +444,15 @@
                   <line x1="0" y1="60%" x2="100%" y2="60%" />
                   <line x1="0" y1="80%" x2="100%" y2="80%" />
                 </g>
-        
+
                 <!-- Polyline for the line chart -->
-                <polyline 
-                  fill="none" 
-                  stroke="#3b82f6" 
+                <polyline
+                  fill="none"
+                  stroke="#3b82f6"
                   stroke-width="3"
                   points="0,80 50,60 100,50 150,30 200,40 250,20 300,35 350,25 400,30"
                 />
-        
+
                 <!-- Dots on the line -->
                 <g fill="#3b82f6">
                   <circle cx="0" cy="80" r="4" />
@@ -462,9 +466,11 @@
                   <circle cx="400" cy="30" r="4" />
                 </g>
               </svg>
-        
+
               <!-- X-axis labels -->
-              <div class="absolute bottom-0 w-full flex justify-between text-xs text-gray-600 px-2">
+              <div
+                class="absolute bottom-0 w-full flex justify-between text-xs text-gray-600 px-2"
+              >
                 <span>Jan</span>
                 <span>Feb</span>
                 <span>Mar</span>
