@@ -281,30 +281,6 @@
             </ul>
           </nav>
         </aside>
-
-        <script>
-          function toggleSubmenu(id) {
-            const submenu = document.getElementById("submenu-" + id);
-            if (!submenu) return;
-            const isOpen =
-              submenu.style.maxHeight && submenu.style.maxHeight !== "0px";
-
-            if (isOpen) {
-              submenu.style.maxHeight = "0px";
-            } else {
-              submenu.style.maxHeight = submenu.scrollHeight + "px";
-            }
-          }
-
-          // Optional: highlight active link based on location
-          const currentPath = window.location.pathname;
-          const links = document.querySelectorAll("a[href]");
-          links.forEach((link) => {
-            if (link.getAttribute("href") === currentPath) {
-              link.classList.add("menu-dropdown-item-active");
-            }
-          });
-        </script>
       </div>
       <div id="main" class="flex-1 flex flex-col overflow-x-hidden">
         <header class="bg-white shadow p-4 flex justify-between items-center">
@@ -718,6 +694,30 @@
       const toggleButton = document.getElementById("sidebarToggle");
       toggleButton.addEventListener("click", () => {
         aside.classList.toggle("hidden");
+      });
+    </script>
+    ,
+    <script>
+      function toggleSubmenu(id) {
+        const submenu = document.getElementById("submenu-" + id);
+        if (!submenu) return;
+        const isOpen =
+          submenu.style.maxHeight && submenu.style.maxHeight !== "0px";
+
+        if (isOpen) {
+          submenu.style.maxHeight = "0px";
+        } else {
+          submenu.style.maxHeight = submenu.scrollHeight + "px";
+        }
+      }
+
+      // Optional: highlight active link based on location
+      const currentPath = window.location.pathname;
+      const links = document.querySelectorAll("a[href]");
+      links.forEach((link) => {
+        if (link.getAttribute("href") === currentPath) {
+          link.classList.add("menu-dropdown-item-active");
+        }
       });
     </script>
   </body>

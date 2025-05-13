@@ -297,29 +297,7 @@
           </nav>
         </aside>
 
-        <script>
-          function toggleSubmenu(id) {
-            const submenu = document.getElementById("submenu-" + id);
-            if (!submenu) return;
-            const isOpen =
-              submenu.style.maxHeight && submenu.style.maxHeight !== "0px";
-
-            if (isOpen) {
-              submenu.style.maxHeight = "0px";
-            } else {
-              submenu.style.maxHeight = submenu.scrollHeight + "px";
-            }
-          }
-
-          // Optional: highlight active link based on location
-          const currentPath = window.location.pathname;
-          const links = document.querySelectorAll("a[href]");
-          links.forEach((link) => {
-            if (link.getAttribute("href") === currentPath) {
-              link.classList.add("menu-dropdown-item-active");
-            }
-          });
-        </script>
+       
       </div>
 
       <div id="main" class="flex-1 flex flex-col overflow-x-hidden">
@@ -410,38 +388,7 @@
             </div>
           </header>
 
-          <script>
-            // Sidebar toggle logic
-            const sidebarToggle = document.getElementById("sidebarToggle");
-            const sidebarIcon = document.getElementById("sidebarIcon");
-
-            let sidebarOpen = false;
-
-            sidebarToggle.addEventListener("click", () => {
-              sidebarOpen = !sidebarOpen;
-              sidebarIcon.innerHTML = sidebarOpen
-                ? `<svg width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M6.22 6.22a1 1 0 011.42 0L12 10.59l4.36-4.37a1 1 0 111.42 1.42L13.41 12l4.37 4.36a1 1 0 01-1.42 1.42L12 13.41l-4.36 4.37a1 1 0 01-1.42-1.42L10.59 12 6.22 7.64a1 1 0 010-1.42z"/></svg>`
-                : `<svg width="16" height="12" viewBox="0 0 16 12"><path fill="currentColor" d="M0.583 1A.75.75 0 011.333.25h13.333a.75.75 0 010 1.5H1.333A.75.75 0 010.583 1zm0 10a.75.75 0 01.75-.75h13.333a.75.75 0 010 1.5H1.333a.75.75 0 01-.75-.75zM1.333 5.25a.75.75 0 000 1.5h6.667a.75.75 0 000-1.5H1.333z"/></svg>`;
-            });
-
-            // App menu toggle
-            const appMenuBtn = document.getElementById("appMenuBtn");
-            const appMenu = document.getElementById("appMenu");
-
-            appMenuBtn.addEventListener("click", () => {
-              appMenu.classList.toggle("hidden");
-              appMenu.classList.toggle("flex");
-            });
-
-            // Ctrl+K or Cmd+K to focus search
-            const searchInput = document.getElementById("searchInput");
-            document.addEventListener("keydown", (e) => {
-              if ((e.metaKey || e.ctrlKey) && e.key === "k") {
-                e.preventDefault();
-                searchInput?.focus();
-              }
-            });
-          </script>
+         
         </div>
 
         <div>
@@ -574,27 +521,7 @@
                   </div>
                 </div>
 
-                <script>
-                  // Toggle password visibility
-                  const passwordInput = document.getElementById("password");
-                  const togglePasswordBtn =
-                    document.getElementById("togglePassword");
-
-                  togglePasswordBtn.addEventListener("click", () => {
-                    const isPassword = passwordInput.type === "password";
-                    passwordInput.type = isPassword ? "text" : "password";
-                    togglePasswordBtn.innerHTML = isPassword
-                      ? `<i class="ri-eye-off-line"></i>`
-                      : `<i class="ri-eye-line"></i>`;
-                  });
-
-                  // Handle select change
-                  document
-                    .getElementById("selectInput")
-                    .addEventListener("change", function () {
-                      console.log("Selected value:", this.value);
-                    });
-                </script>
+              
               </div>
               <!-- select input  -->
               <div>
@@ -659,102 +586,7 @@
                   </div>
                 </div>
 
-                <script>
-                  const options = [
-                    { value: "1", label: "Option 1" },
-                    { value: "2", label: "Option 2" },
-                    { value: "3", label: "Option 3" },
-                    { value: "4", label: "Option 4" },
-                    { value: "5", label: "Option 5" },
-                  ];
-
-                  const selectedValues = new Set(["2", "3", "4", "5"]); // default selected
-                  const dropdown = document.getElementById("dropdown-options");
-                  const tagContainer = document.getElementById("selected-tags");
-                  const placeholder = document.getElementById("placeholder");
-                  const arrow = document.getElementById("dropdown-arrow");
-
-                  function toggleDropdown() {
-                    dropdown.classList.toggle("hidden");
-                    arrow.classList.toggle("rotate-180");
-                  }
-
-                  function renderOptions() {
-                    const container = dropdown.querySelector("div");
-                    container.innerHTML = "";
-                    options.forEach((opt) => {
-                      const div = document.createElement("div");
-                      div.className =
-                        "px-4 py-2 hover:bg-gray-100 cursor-pointer text-sm";
-                      div.textContent = opt.label;
-                      div.onclick = () => toggleSelect(opt.value);
-                      container.appendChild(div);
-                    });
-                  }
-
-                  function toggleSelect(value) {
-                    if (selectedValues.has(value)) {
-                      selectedValues.delete(value);
-                    } else {
-                      selectedValues.add(value);
-                    }
-                    renderTags();
-                  }
-
-                  function removeTag(value) {
-                    selectedValues.delete(value);
-                    renderTags();
-                  }
-
-                  function renderTags() {
-                    // Remove all tags except the dropdown arrow
-                    const children = Array.from(tagContainer.children).filter(
-                      (child) => !child.id && !child.tagName.includes("svg")
-                    );
-                    children.forEach((child) => child.remove());
-
-                    if (selectedValues.size === 0) {
-                      placeholder.classList.remove("hidden");
-                    } else {
-                      placeholder.classList.add("hidden");
-                    }
-
-                    selectedValues.forEach((val) => {
-                      const opt = options.find((o) => o.value === val);
-                      if (!opt) return;
-
-                      const tag = document.createElement("span");
-                      tag.className =
-                        "bg-gray-200 text-gray-800 text-xs px-2 py-1 rounded-full flex items-center gap-1";
-
-                      const text = document.createElement("span");
-                      text.textContent = opt.label;
-
-                      const closeBtn = document.createElement("button");
-                      closeBtn.innerHTML = "&times;";
-                      closeBtn.className = "text-gray-500 hover:text-gray-700";
-                      closeBtn.onclick = (e) => {
-                        e.stopPropagation();
-                        removeTag(val);
-                      };
-
-                      tag.appendChild(text);
-                      tag.appendChild(closeBtn);
-                      tagContainer.insertBefore(tag, arrow);
-                    });
-                  }
-
-                  renderOptions();
-                  renderTags();
-
-                  // Close dropdown on outside click
-                  document.addEventListener("click", (e) => {
-                    if (!tagContainer.contains(e.target)) {
-                      dropdown.classList.add("hidden");
-                      arrow.classList.remove("rotate-180");
-                    }
-                  });
-                </script>
+               
               </div>
               <!-- textarea input -->
               <div>
@@ -806,27 +638,7 @@
                   </div>
                 </div>
 
-                <script>
-                  const textarea1 = document.getElementById("textarea1");
-                  const textarea2 = document.getElementById("textarea2");
-                  const errorMsg = document.getElementById("errorMsg");
-
-                  textarea1.addEventListener("input", (e) => {
-                    // Message 1 captured, do what you want
-                    console.log("TextArea 1:", e.target.value);
-                  });
-
-                  textarea2.addEventListener("input", (e) => {
-                    const value = e.target.value;
-                    if (value.trim().length < 3) {
-                      errorMsg.classList.remove("hidden");
-                      textarea2.classList.add("border-red-500");
-                    } else {
-                      errorMsg.classList.add("hidden");
-                      textarea2.classList.remove("border-red-500");
-                    }
-                  });
-                </script>
+               
               </div>
               <!-- state input  -->
               <div>
@@ -889,60 +701,7 @@
                   </div>
                 </div>
 
-                <script>
-                  const errorInput = document.getElementById("errorInput");
-                  const successInput = document.getElementById("successInput");
-                  const errorHint = document.getElementById("errorHint");
-                  const successHint = document.getElementById("successHint");
-
-                  const validateEmail = (email) => {
-                    const regex =
-                      /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-                    return regex.test(email);
-                  };
-
-                  errorInput.addEventListener("input", (e) => {
-                    const value = e.target.value;
-                    const isValid = validateEmail(value);
-
-                    if (!isValid) {
-                      errorInput.classList.add(
-                        "border-red-500",
-                        "ring-red-500"
-                      );
-                      errorInput.classList.remove(
-                        "border-green-500",
-                        "ring-green-500"
-                      );
-                      errorHint.classList.remove("hidden");
-                    } else {
-                      errorInput.classList.remove(
-                        "border-red-500",
-                        "ring-red-500"
-                      );
-                      errorHint.classList.add("hidden");
-                    }
-                  });
-
-                  successInput.addEventListener("input", (e) => {
-                    const value = e.target.value;
-                    const isValid = validateEmail(value);
-
-                    if (isValid) {
-                      successInput.classList.add(
-                        "border-green-500",
-                        "ring-green-500"
-                      );
-                      successHint.classList.remove("hidden");
-                    } else {
-                      successInput.classList.remove(
-                        "border-green-500",
-                        "ring-green-500"
-                      );
-                      successHint.classList.add("hidden");
-                    }
-                  });
-                </script>
+              
               </div>
             </div>
             <!-- right  -->
@@ -1035,29 +794,7 @@
                   </div>
                 </div>
 
-                <script>
-                  // Handle phone number changes
-                  const phoneInput1 = document.getElementById("phoneInput1");
-                  const countryPrefix1 =
-                    document.getElementById("countryPrefix1");
-                  const phoneInput2 = document.getElementById("phoneInput2");
-                  const countryPrefix2 =
-                    document.getElementById("countryPrefix2");
-
-                  phoneInput1.addEventListener("input", () => {
-                    console.log(
-                      "Updated phone number:",
-                      countryPrefix1.value + " " + phoneInput1.value
-                    );
-                  });
-
-                  phoneInput2.addEventListener("input", () => {
-                    console.log(
-                      "Updated phone number:",
-                      phoneInput2.value + " " + countryPrefix2.value
-                    );
-                  });
-                </script>
+               
               </div>
               <!-- file input  -->
               <div>
@@ -1081,16 +818,7 @@
                   </div>
                 </div>
 
-                <script>
-                  const fileInputUpload = document.getElementById("fileUpload");
-
-                  fileInputUpload.addEventListener("change", function (event) {
-                    const file = event.target.files?.[0];
-                    if (file) {
-                      console.log("Selected file:", file.name);
-                    }
-                  });
-                </script>
+          
               </div>
               <!-- checkbox input   -->
               <div>
@@ -1146,24 +874,7 @@
                   </div>
                 </div>
 
-                <script>
-                  const defaultCheckbox =
-                    document.getElementById("defaultCheckbox");
-                  const checkedCheckbox =
-                    document.getElementById("checkedCheckbox");
-                  const disabledCheckbox =
-                    document.getElementById("disabledCheckbox");
-
-                  defaultCheckbox.addEventListener("change", () => {
-                    console.log("Default checkbox:", defaultCheckbox.checked);
-                  });
-
-                  checkedCheckbox.addEventListener("change", () => {
-                    console.log("Checked checkbox:", checkedCheckbox.checked);
-                  });
-
-                  // No listener on disabled, since it's disabled
-                </script>
+                
               </div>
               <!-- radio input   -->
               <div>
@@ -1212,16 +923,7 @@
                   </div>
                 </div>
 
-                <script>
-                  const radios = document.querySelectorAll(
-                    'input[name="group1"]'
-                  );
-                  radios.forEach((radio) => {
-                    radio.addEventListener("change", (e) => {
-                      console.log("Selected value:", e.target.value);
-                    });
-                  });
-                </script>
+               
               </div>
               <!-- toggle input  -->
               <div>
@@ -1317,11 +1019,7 @@
                   </div>
                 </div>
 
-                <script>
-                  function handleSwitchChange(el) {
-                    console.log("Switch is now:", el.checked ? "ON" : "OFF");
-                  }
-                </script>
+               
               </div>
               <!-- drop zone  -->
               <div>
@@ -1385,7 +1083,45 @@
                   </div>
                 </div>
 
-                <script>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const aside = document.getElementById("aside");
+      const main = document.getElementById("main");
+      const toggleButton = document.getElementById("sidebarToggle");
+      toggleButton.addEventListener("click", () => {
+        aside.classList.toggle("hidden");
+      });
+    </script>
+     <script>
+          function toggleSubmenu(id) {
+            const submenu = document.getElementById("submenu-" + id);
+            if (!submenu) return;
+            const isOpen =
+              submenu.style.maxHeight && submenu.style.maxHeight !== "0px";
+
+            if (isOpen) {
+              submenu.style.maxHeight = "0px";
+            } else {
+              submenu.style.maxHeight = submenu.scrollHeight + "px";
+            }
+          }
+
+          // Optional: highlight active link based on location
+          const currentPath = window.location.pathname;
+          const links = document.querySelectorAll("a[href]");
+          links.forEach((link) => {
+            if (link.getAttribute("href") === currentPath) {
+              link.classList.add("menu-dropdown-item-active");
+            }
+          });
+        </script>
+        <script>
                   const dropzone = document.getElementById("dropzone");
                   const fileInput = document.getElementById("fileInput");
                   const dropText = document.getElementById("dropText");
@@ -1419,19 +1155,295 @@
                     // Handle file uploads or previews
                   }
                 </script>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <script>
-      const aside = document.getElementById("aside");
-      const main = document.getElementById("main");
-      const toggleButton = document.getElementById("sidebarToggle");
-      toggleButton.addEventListener("click", () => {
-        aside.classList.toggle("hidden");
-      });
-    </script>
+                <script>
+                  const defaultCheckbox =
+                    document.getElementById("defaultCheckbox");
+                  const checkedCheckbox =
+                    document.getElementById("checkedCheckbox");
+                  const disabledCheckbox =
+                    document.getElementById("disabledCheckbox");
+
+                  defaultCheckbox.addEventListener("change", () => {
+                    console.log("Default checkbox:", defaultCheckbox.checked);
+                  });
+
+                  checkedCheckbox.addEventListener("change", () => {
+                    console.log("Checked checkbox:", checkedCheckbox.checked);
+                  });
+
+                  // No listener on disabled, since it's disabled
+                </script>
+                 <script>
+                  const radios = document.querySelectorAll(
+                    'input[name="group1"]'
+                  );
+                  radios.forEach((radio) => {
+                    radio.addEventListener("change", (e) => {
+                      console.log("Selected value:", e.target.value);
+                    });
+                  });
+                </script>
+                 <script>
+                  function handleSwitchChange(el) {
+                    console.log("Switch is now:", el.checked ? "ON" : "OFF");
+                  }
+                </script>
+                      <script>
+                  const fileInputUpload = document.getElementById("fileUpload");
+
+                  fileInputUpload.addEventListener("change", function (event) {
+                    const file = event.target.files?.[0];
+                    if (file) {
+                      console.log("Selected file:", file.name);
+                    }
+                  });
+                </script>
+                 <script>
+                  // Handle phone number changes
+                  const phoneInput1 = document.getElementById("phoneInput1");
+                  const countryPrefix1 =
+                    document.getElementById("countryPrefix1");
+                  const phoneInput2 = document.getElementById("phoneInput2");
+                  const countryPrefix2 =
+                    document.getElementById("countryPrefix2");
+
+                  phoneInput1.addEventListener("input", () => {
+                    console.log(
+                      "Updated phone number:",
+                      countryPrefix1.value + " " + phoneInput1.value
+                    );
+                  });
+
+                  phoneInput2.addEventListener("input", () => {
+                    console.log(
+                      "Updated phone number:",
+                      phoneInput2.value + " " + countryPrefix2.value
+                    );
+                  });
+                </script>
+                  <script>
+                  const errorInput = document.getElementById("errorInput");
+                  const successInput = document.getElementById("successInput");
+                  const errorHint = document.getElementById("errorHint");
+                  const successHint = document.getElementById("successHint");
+
+                  const validateEmail = (email) => {
+                    const regex =
+                      /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+                    return regex.test(email);
+                  };
+
+                  errorInput.addEventListener("input", (e) => {
+                    const value = e.target.value;
+                    const isValid = validateEmail(value);
+
+                    if (!isValid) {
+                      errorInput.classList.add(
+                        "border-red-500",
+                        "ring-red-500"
+                      );
+                      errorInput.classList.remove(
+                        "border-green-500",
+                        "ring-green-500"
+                      );
+                      errorHint.classList.remove("hidden");
+                    } else {
+                      errorInput.classList.remove(
+                        "border-red-500",
+                        "ring-red-500"
+                      );
+                      errorHint.classList.add("hidden");
+                    }
+                  });
+
+                  successInput.addEventListener("input", (e) => {
+                    const value = e.target.value;
+                    const isValid = validateEmail(value);
+
+                    if (isValid) {
+                      successInput.classList.add(
+                        "border-green-500",
+                        "ring-green-500"
+                      );
+                      successHint.classList.remove("hidden");
+                    } else {
+                      successInput.classList.remove(
+                        "border-green-500",
+                        "ring-green-500"
+                      );
+                      successHint.classList.add("hidden");
+                    }
+                  });
+                </script>
+                 <script>
+                  const textarea1 = document.getElementById("textarea1");
+                  const textarea2 = document.getElementById("textarea2");
+                  const errorMsg = document.getElementById("errorMsg");
+
+                  textarea1.addEventListener("input", (e) => {
+                    // Message 1 captured, do what you want
+                    console.log("TextArea 1:", e.target.value);
+                  });
+
+                  textarea2.addEventListener("input", (e) => {
+                    const value = e.target.value;
+                    if (value.trim().length < 3) {
+                      errorMsg.classList.remove("hidden");
+                      textarea2.classList.add("border-red-500");
+                    } else {
+                      errorMsg.classList.add("hidden");
+                      textarea2.classList.remove("border-red-500");
+                    }
+                  });
+                </script>
+                 <script>
+                  const options = [
+                    { value: "1", label: "Option 1" },
+                    { value: "2", label: "Option 2" },
+                    { value: "3", label: "Option 3" },
+                    { value: "4", label: "Option 4" },
+                    { value: "5", label: "Option 5" },
+                  ];
+
+                  const selectedValues = new Set(["2", "3", "4", "5"]); // default selected
+                  const dropdown = document.getElementById("dropdown-options");
+                  const tagContainer = document.getElementById("selected-tags");
+                  const placeholder = document.getElementById("placeholder");
+                  const arrow = document.getElementById("dropdown-arrow");
+
+                  function toggleDropdown() {
+                    dropdown.classList.toggle("hidden");
+                    arrow.classList.toggle("rotate-180");
+                  }
+
+                  function renderOptions() {
+                    const container = dropdown.querySelector("div");
+                    container.innerHTML = "";
+                    options.forEach((opt) => {
+                      const div = document.createElement("div");
+                      div.className =
+                        "px-4 py-2 hover:bg-gray-100 cursor-pointer text-sm";
+                      div.textContent = opt.label;
+                      div.onclick = () => toggleSelect(opt.value);
+                      container.appendChild(div);
+                    });
+                  }
+
+                  function toggleSelect(value) {
+                    if (selectedValues.has(value)) {
+                      selectedValues.delete(value);
+                    } else {
+                      selectedValues.add(value);
+                    }
+                    renderTags();
+                  }
+
+                  function removeTag(value) {
+                    selectedValues.delete(value);
+                    renderTags();
+                  }
+
+                  function renderTags() {
+                    // Remove all tags except the dropdown arrow
+                    const children = Array.from(tagContainer.children).filter(
+                      (child) => !child.id && !child.tagName.includes("svg")
+                    );
+                    children.forEach((child) => child.remove());
+
+                    if (selectedValues.size === 0) {
+                      placeholder.classList.remove("hidden");
+                    } else {
+                      placeholder.classList.add("hidden");
+                    }
+
+                    selectedValues.forEach((val) => {
+                      const opt = options.find((o) => o.value === val);
+                      if (!opt) return;
+
+                      const tag = document.createElement("span");
+                      tag.className =
+                        "bg-gray-200 text-gray-800 text-xs px-2 py-1 rounded-full flex items-center gap-1";
+
+                      const text = document.createElement("span");
+                      text.textContent = opt.label;
+
+                      const closeBtn = document.createElement("button");
+                      closeBtn.innerHTML = "&times;";
+                      closeBtn.className = "text-gray-500 hover:text-gray-700";
+                      closeBtn.onclick = (e) => {
+                        e.stopPropagation();
+                        removeTag(val);
+                      };
+
+                      tag.appendChild(text);
+                      tag.appendChild(closeBtn);
+                      tagContainer.insertBefore(tag, arrow);
+                    });
+                  }
+
+                  renderOptions();
+                  renderTags();
+
+                  // Close dropdown on outside click
+                  document.addEventListener("click", (e) => {
+                    if (!tagContainer.contains(e.target)) {
+                      dropdown.classList.add("hidden");
+                      arrow.classList.remove("rotate-180");
+                    }
+                  });
+                </script>
+                  <script>
+                  // Toggle password visibility
+                  const passwordInput = document.getElementById("password");
+                  const togglePasswordBtn =
+                    document.getElementById("togglePassword");
+
+                  togglePasswordBtn.addEventListener("click", () => {
+                    const isPassword = passwordInput.type === "password";
+                    passwordInput.type = isPassword ? "text" : "password";
+                    togglePasswordBtn.innerHTML = isPassword
+                      ? `<i class="ri-eye-off-line"></i>`
+                      : `<i class="ri-eye-line"></i>`;
+                  });
+
+                  // Handle select change
+                  document
+                    .getElementById("selectInput")
+                    .addEventListener("change", function () {
+                      console.log("Selected value:", this.value);
+                    });
+                </script>
+                 <script>
+            // Sidebar toggle logic
+            const sidebarToggle = document.getElementById("sidebarToggle");
+            const sidebarIcon = document.getElementById("sidebarIcon");
+
+            let sidebarOpen = false;
+
+            sidebarToggle.addEventListener("click", () => {
+              sidebarOpen = !sidebarOpen;
+              sidebarIcon.innerHTML = sidebarOpen
+                ? `<svg width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M6.22 6.22a1 1 0 011.42 0L12 10.59l4.36-4.37a1 1 0 111.42 1.42L13.41 12l4.37 4.36a1 1 0 01-1.42 1.42L12 13.41l-4.36 4.37a1 1 0 01-1.42-1.42L10.59 12 6.22 7.64a1 1 0 010-1.42z"/></svg>`
+                : `<svg width="16" height="12" viewBox="0 0 16 12"><path fill="currentColor" d="M0.583 1A.75.75 0 011.333.25h13.333a.75.75 0 010 1.5H1.333A.75.75 0 010.583 1zm0 10a.75.75 0 01.75-.75h13.333a.75.75 0 010 1.5H1.333a.75.75 0 01-.75-.75zM1.333 5.25a.75.75 0 000 1.5h6.667a.75.75 0 000-1.5H1.333z"/></svg>`;
+            });
+
+            // App menu toggle
+            const appMenuBtn = document.getElementById("appMenuBtn");
+            const appMenu = document.getElementById("appMenu");
+
+            appMenuBtn.addEventListener("click", () => {
+              appMenu.classList.toggle("hidden");
+              appMenu.classList.toggle("flex");
+            });
+
+            // Ctrl+K or Cmd+K to focus search
+            const searchInput = document.getElementById("searchInput");
+            document.addEventListener("keydown", (e) => {
+              if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+                e.preventDefault();
+                searchInput?.focus();
+              }
+            });
+          </script>
   </body>
 </html>

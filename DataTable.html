@@ -283,30 +283,6 @@
             </ul>
           </nav>
         </aside>
-
-        <script>
-          function toggleSubmenu(id) {
-            const submenu = document.getElementById("submenu-" + id);
-            if (!submenu) return;
-            const isOpen =
-              submenu.style.maxHeight && submenu.style.maxHeight !== "0px";
-
-            if (isOpen) {
-              submenu.style.maxHeight = "0px";
-            } else {
-              submenu.style.maxHeight = submenu.scrollHeight + "px";
-            }
-          }
-
-          // Optional: highlight active link based on location
-          const currentPath = window.location.pathname;
-          const links = document.querySelectorAll("a[href]");
-          links.forEach((link) => {
-            if (link.getAttribute("href") === currentPath) {
-              link.classList.add("menu-dropdown-item-active");
-            }
-          });
-        </script>
       </div>
       <div id="main" class="flex-1 flex flex-col overflow-x-hidden">
         <header class="bg-white shadow p-4 flex justify-between items-center">
@@ -394,39 +370,6 @@
             </div>
           </div>
         </header>
-
-        <script>
-          // Sidebar toggle logic
-          const sidebarToggle = document.getElementById("sidebarToggle");
-          const sidebarIcon = document.getElementById("sidebarIcon");
-
-          let sidebarOpen = false;
-
-          sidebarToggle.addEventListener("click", () => {
-            sidebarOpen = !sidebarOpen;
-            sidebarIcon.innerHTML = sidebarOpen
-              ? `<span class="ri-close-line"></span>`
-              : `<span class="ri-menu-2-line"></span>`;
-          });
-
-          // App menu toggle
-          const appMenuBtn = document.getElementById("appMenuBtn");
-          const appMenu = document.getElementById("appMenu");
-
-          appMenuBtn.addEventListener("click", () => {
-            appMenu.classList.toggle("hidden");
-            appMenu.classList.toggle("flex");
-          });
-
-          // Ctrl+K or Cmd+K to focus search
-          const searchInput = document.getElementById("searchInput");
-          document.addEventListener("keydown", (e) => {
-            if ((e.metaKey || e.ctrlKey) && e.key === "k") {
-              e.preventDefault();
-              searchInput?.focus();
-            }
-          });
-        </script>
 
         <div class="flex-1 flex flex-col">
           <!-- data table  -->
@@ -2552,6 +2495,61 @@
       const toggleButton = document.getElementById("sidebarToggle");
       toggleButton.addEventListener("click", () => {
         aside.classList.toggle("hidden");
+      });
+    </script>
+    <script>
+      function toggleSubmenu(id) {
+        const submenu = document.getElementById("submenu-" + id);
+        if (!submenu) return;
+        const isOpen =
+          submenu.style.maxHeight && submenu.style.maxHeight !== "0px";
+
+        if (isOpen) {
+          submenu.style.maxHeight = "0px";
+        } else {
+          submenu.style.maxHeight = submenu.scrollHeight + "px";
+        }
+      }
+
+      // Optional: highlight active link based on location
+      const currentPath = window.location.pathname;
+      const links = document.querySelectorAll("a[href]");
+      links.forEach((link) => {
+        if (link.getAttribute("href") === currentPath) {
+          link.classList.add("menu-dropdown-item-active");
+        }
+      });
+    </script>
+    <script>
+      // Sidebar toggle logic
+      const sidebarToggle = document.getElementById("sidebarToggle");
+      const sidebarIcon = document.getElementById("sidebarIcon");
+
+      let sidebarOpen = false;
+
+      sidebarToggle.addEventListener("click", () => {
+        sidebarOpen = !sidebarOpen;
+        sidebarIcon.innerHTML = sidebarOpen
+          ? `<span class="ri-close-line"></span>`
+          : `<span class="ri-menu-2-line"></span>`;
+      });
+
+      // App menu toggle
+      const appMenuBtn = document.getElementById("appMenuBtn");
+      const appMenu = document.getElementById("appMenu");
+
+      appMenuBtn.addEventListener("click", () => {
+        appMenu.classList.toggle("hidden");
+        appMenu.classList.toggle("flex");
+      });
+
+      // Ctrl+K or Cmd+K to focus search
+      const searchInput = document.getElementById("searchInput");
+      document.addEventListener("keydown", (e) => {
+        if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+          e.preventDefault();
+          searchInput?.focus();
+        }
       });
     </script>
   </body>
